@@ -52,7 +52,7 @@ return [
     |
     */
 
-    'url' => env('APP_URL', 'https://sopadmin.herokuapp.com'),
+    'url' => env('https://sopadmin.herokuapp.com'),
 
     'asset_url' => env('ASSET_URL', null),
 
