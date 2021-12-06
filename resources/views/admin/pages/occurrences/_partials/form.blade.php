@@ -5,7 +5,7 @@
             <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12">
                 <div class="form-group">
                     <label for="title">Nome Completo:</label>
-                    <input type="text" name="name" class="form-control" placeholder="Nome Completo"
+                    <input type="text" name="name" id="name" class="form-control" placeholder="Nome Completo"
                         value="{{ $occurrence->name ?? old('name') }}">
                 </div>
             </div>
@@ -57,15 +57,25 @@
             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                 <div class="form-group">
                     <label for="type_occurrences_id">Tipo Ocorrência:</label>
-                    <input type="text" name="type_occurrences_id" class="form-control" placeholder="Tipo Ocorrência"
-                        value="{{ $occurrence->type_occurrences_id ?? old('type_occurrences_id') }}">
+                    <select name="type_occurrences_id" class="form-control">
+                        <option value="1" selected>Selecione...</option>
+                        @foreach ($typeOccurrences as $typeOccurrence)
+                            <option value="{{ $typeOccurrence->id }}">
+                                {{ $typeOccurrence->name }}</option>
+                        @endforeach
+                    </select>
                 </div>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                 <div class="form-group">
                     <label for="issuings_id">Orgão:</label>
-                    <input type="text" name="issuings_id" class="form-control" placeholder="Orgão"
-                        value="{{ $occurrence->issuings_id ?? old('issuings_id') }}">
+                    <select name="issuings_id" id="issuings_id" class="form-control">
+                        <option value="1" selected>Selecione...</option>
+                        @foreach ($issuings as $issuing)
+                            <option value="{{ $issuing->id }}">
+                                {{ $issuing->name }}</option>
+                        @endforeach
+                    </select>
                 </div>
             </div>
         </div>
@@ -79,7 +89,7 @@
             <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12">
                 <div class="form-group">
                     <label for="description">Descrição:</label>
-                    <textarea cols="40" rows="5"
+                    <textarea cols="40" rows="5" name="description" id="description"
                         class="form-control">{{ $occurrence->description ?? old('description') }}</textarea>
 
                 </div>

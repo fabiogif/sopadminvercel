@@ -6,14 +6,18 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\StoreUpdateOccurrences;
 use App\Models\Occurrences;
 use Illuminate\Http\Request;
+use App\Models\TypeOccurrence;
+use App\Models\Issuing;
 
 class OccurrencesController extends Controller
 {
     protected $repository;
 
-    public function __construct(Occurrences $occurrences)
+    public function __construct(Occurrences $occurrences, TypeOccurrence $typeOccurrence, Issuing $issuing)
     {
         $this->repository = $occurrences;
+        $this->typeOccurrence = $typeOccurrence;
+        $this->issuing = $issuing;
     }
 
 
@@ -25,18 +29,24 @@ class OccurrencesController extends Controller
     public function index()
     {
         $occurrences = $this->repository->paginate();
-        return view('admin.pages.occurrences.index', compact('occurrences'));
+        return view('admin.pages.occurrences.index',  ['occurrences' => $occurrences]);
     }
 
     public function create()
     {
-        return view('admin.pages.occurrences.create');
+        $typeOccurrences = $this->typeOccurrence->orderBy('name')->get();
+        $issuings = $this->issuing->orderBy('name')->get();
+
+        return view('admin.pages.occurrences.create', ['typeOccurrences' => $typeOccurrences, 'issuings' => $issuings]);
     }
 
     public function store(StoreUpdateOccurrences $request)
     {
+        $tenant = auth()->user()->tenant;
 
-        $this->repository->create($request->all());
+        $data = $request->all();
+        $data['users_id'] = $tenant->id;
+        $this->repository->create($data);
 
 
         return redirect()->route('occurrences.index');
@@ -45,12 +55,13 @@ class OccurrencesController extends Controller
     public function show($id)
     {
         $occurrences = $this->repository->where('id', $id)->first();
+        $issuings = $this->issuing->orderBy('name')->get();
 
         if (!$occurrences) {
             return redirect()->back();
         }
 
-        return  view('admin.pages.occurrences.show', ['occurrences' => $occurrences]);
+        return  view('admin.pages.occurrences.show', ['occurrences' => $occurrences, 'issuings' => $issuings]);
     }
 
     public function destroy($id)
@@ -68,10 +79,9 @@ class OccurrencesController extends Controller
 
     public function search(Request $request)
     {
-
         $filters = $request->all();
 
-        $occurrences = $this->repository->search($request->filter);
+        $occurrences = $this->repository->Occurrence($request->filter);
 
         return view(
             'admin.pages.occurrences.index',
@@ -85,13 +95,15 @@ class OccurrencesController extends Controller
     public function edit($id)
     {
         $occurrences = $this->repository->where('id', $id)->first();
+        $typeOccurrences = $this->typeOccurrence->orderBy('name')->get();
+        $issuings = $this->issuing->orderBy('name')->get();
 
         if (!$occurrences) {
             return redirect()->back();
         }
         return view(
             'admin.pages.occurrences.edit',
-            ['occurrences' => $occurrences]
+            ['occurrences' => $occurrences, 'typeOccurrences' => $typeOccurrences, 'issuings' => $issuings]
         );
     }
 

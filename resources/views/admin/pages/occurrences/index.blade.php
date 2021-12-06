@@ -1,5 +1,5 @@
 @extends('adminlte::page')
-@section('title', 'Ocorrência')
+@section('title', 'Ocorrências')
 
 @section('content_header')
     <ol class="breadcrumb">
@@ -42,17 +42,20 @@
                         <th>Tipo de Ocorrência</th>
                         <th>Orgão Ocorrência</th>
                         <th>E-mail</th>
-                        <th>Data Inicial</th>
-                        <th width="250px">Ações</th>
+                        <th>Ultima atualização</th>
+                        <th width="200px">Ações</th>
                     </tr>
                 </thead>
                 <tbody>
                     @foreach ($occurrences as $occurrence)
+
                         <tr>
                             <td>{{ $occurrence->title }}</td>
-                            <td>{{ $occurrence->title }}</td>
+                            <td>{{ $occurrence->nameType }}</td>
+                            <td>{{ $occurrence->nameIssuings }}</td>
                             <td>{{ $occurrence->email }}</td>
-                            <td>{{ $occurrence->title }}</td>
+
+                            <td>{!! date('d/m/Y - h:m:s', strtotime($occurrence->updated_at)) !!} </td>
                             <td style="width: 10px">
                                 <a href="{{ route('occurrences.edit', $occurrence->id) }}"
                                     class="btn btn-warning">Alterar</a>

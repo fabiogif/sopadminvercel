@@ -120,7 +120,7 @@ Route::prefix('admin')
         //Home
         Route::get('/', [App\Http\Controllers\Admin\PlanController::class, 'index'])->name('admin.index');
         //Ocorrencias
-        Route::any('/occurrences/search', [App\Http\Controllers\Admin\ACL\OccurrencesController::class, 'search'])->name('occurrences.search');
+        Route::any('/occurrences/search', [App\Http\Controllers\Admin\OccurrencesController::class, 'search'])->name('occurrences.search');
         Route::resource('occurrences', OccurrencesController::class);
 
         //Tipo de ocorrencia

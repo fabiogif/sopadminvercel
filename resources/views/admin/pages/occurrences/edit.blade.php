@@ -12,10 +12,11 @@
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <div class="card">
                 <div class="card-body">
-                    <form action="{{ route('typeOccurrences.update', $typeOccurrence->id) }}" class="form" method="POST">
+                    <form action="{{ route('occurrences.update', $occurrences->id) }}" class="form"
+                        method="POST">
                         @csrf
                         @method('PUT')
-                        @include('admin.pages.typeOccurrence._partials.form')
+                        @include('admin.pages.occurrences._partials.form')
                     </form>
                 </div>
                 <!--card-body-->

@@ -7,13 +7,35 @@ use Illuminate\Database\Eloquent\Model;
 
 class Occurrences extends Model
 {
-    protected $fillable = ['title', 'description', 'address', 'users_id', 'issuings_id', 'type_occurrences_id', 'latitude', 'longitude'];
+    protected $fillable = ['title', 'name', 'description', 'address', 'users_id', 'email', 'issuings_id', 'type_occurrences_id', 'latitude', 'longitude'];
     use HasFactory;
 
-    public function search($filtter = null)
+    public function search($filter = null)
     {
-        $result = $this->where('title', 'LIKE', "%{$filtter}%")
+        $result = $this->where('title', 'LIKE', "%{$filter}%")
             ->paginate(10);
         return $result;
+    }
+
+
+    public function Occurrence($filter = null)
+    {
+
+        $occurrences =  $this->select(
+            'occurrences.*',
+            'issuings.id as idIssuings',
+            'issuings.name as nameIssuings',
+            'type_occurrences.id as idType',
+            'type_occurrences.name as nameType'
+        )->join('issuings', 'issuings.id', '=', 'occurrences.issuings_id')
+            ->join('type_occurrences', function ($join) {
+                $join->on('occurrences.type_occurrences_id', '=', 'type_occurrences.id');
+            })->where(function ($queryFilter) use ($filter) {
+                if ($filter) {
+                    $queryFilter->where('occurrences.title', 'LIKE', "%{$filter}%");
+                }
+            })->paginate();
+
+        return $occurrences;
     }
 }

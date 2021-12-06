@@ -13,7 +13,7 @@
                 <div class="card-body">
                     <form action="{{ route('typeOccurrences.store') }}" class="form" method="POST">
                         @csrf
-                        @include('admin.pages.typeOccurrence._partials.form')
+                        @include('admin.pages.typeOccurrences._partials.form')
                     </form>
                 </div>
                 <!--card-body-->

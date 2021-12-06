@@ -31,7 +31,7 @@ class TypeOccurrenceController extends Controller
 
     public function create()
     {
-        return view('admin.pages.typeOccurrence.create');
+        return view('admin.pages.typeOccurrences.create');
     }
 
     public function store(StoreUpdateTypeOccurrence $request)

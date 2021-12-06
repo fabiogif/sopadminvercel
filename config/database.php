@@ -65,7 +65,7 @@ return [
             ]) : [],
         ],
 
-        'pgsql' => [
+        /*      'pgsql' => [
             'driver' => 'pgsql',
             'host' => $DATABASE_URL["host"],
             'port' => $DATABASE_URL["port"],
@@ -76,7 +76,7 @@ return [
             'prefix' => '',
             'schema' => 'public',
             'sslmode' => 'require',
-        ],
+        ], */
 
         'sqlsrv' => [
             'driver' => 'sqlsrv',

@@ -8,7 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Issuing extends Model
 {
 
-    protected $fillable = ['name'];
+    protected $fillable = ['id', 'name'];
     use HasFactory;
 
     public function search($filtter = null)
