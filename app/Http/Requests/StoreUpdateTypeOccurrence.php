@@ -26,7 +26,8 @@ class StoreUpdateTypeOccurrence extends FormRequest
         $id = $this->segment(3);
 
         return [
-            'name' => "required|min:3|max:255|unique:profiles,name,{$id},id",
+            //'name' => "required|min:3|max:255|unique:profiles,name,{$id},id",
+            'name' => "required|min:3|max:255",
         ];
     }
 }

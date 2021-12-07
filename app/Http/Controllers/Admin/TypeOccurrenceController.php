@@ -36,6 +36,7 @@ class TypeOccurrenceController extends Controller
 
     public function store(StoreUpdateTypeOccurrence $request)
     {
+
         $this->repository->create($request->all());
 
         return redirect()->route('typeOccurrences.index');
