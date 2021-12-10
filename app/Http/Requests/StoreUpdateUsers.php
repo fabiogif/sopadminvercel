@@ -23,8 +23,12 @@ class StoreUpdateUsers extends FormRequest
      */
     public function rules()
     {
-        $id = $this->segment(3);
 
+        if ($this->method() == 'PUT') {
+            $id = $this->segment(3);
+        } else {
+            $id = 0;
+        }
         $rules = [
             'name' => ['required', 'string', 'min:3', 'max:255'],
             'email' => ['required', 'string', 'min:3', 'max:255', "unique:users,email,{$id},id"],

@@ -23,8 +23,12 @@ class StoreUpdateTable extends FormRequest
      */
     public function rules()
     {
-        $id = $this->segment(3);
 
+        if ($this->method() == 'PUT') {
+            $id = $this->segment(3);
+        } else {
+            $id = 0;
+        }
         return [
             'identify' => ['required', 'min:3', 'max:255', "unique:tables,identify,{$id},id"],
             'description' => ['nullable', 'min:3', 'max:1000']

@@ -23,8 +23,12 @@ class StoreUpdateTenant extends FormRequest
      */
     public function rules()
     {
-        $id = $this->segment(3);
 
+        if ($this->method() == 'PUT') {
+            $id = $this->segment(3);
+        } else {
+            $id = 0;
+        }
         $rules = [
             'name'  => ['required', 'string', 'min:3', 'max:255', "unique:tenants,name,{$id},id"],
             'email' => ['required', 'string', 'min:3', 'max:255', "unique:tenants,email,{$id},id"],

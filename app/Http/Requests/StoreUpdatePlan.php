@@ -23,7 +23,13 @@ class StoreUpdatePlan extends FormRequest
      */
     public function rules()
     {
-        $id = $this->segment(3);
+
+        if ($this->method() == 'PUT') {
+            $id = $this->segment(3);
+        } else {
+            $id = 0;
+        }
+
         return [
             'name' => "required|min:3|max:255|unique:plans,name,{$id},id",
             'price' => "required|regex:/^\d+(\.\d{1,2})?$/",

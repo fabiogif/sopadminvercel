@@ -23,8 +23,12 @@ class StoreUpdateProduct extends FormRequest
      */
     public function rules()
     {
-        $id = $this->segment(3);
 
+        if ($this->method() == 'PUT') {
+            $id = $this->segment(3);
+        } else {
+            $id = 0;
+        }
         $rules = [
             'title' => ['required', 'string', 'min:3', 'max:255', "unique:products,title,{$id},id"],
             'description' => ['required', 'string', 'min:3', 'max:300'],

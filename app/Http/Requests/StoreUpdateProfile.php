@@ -23,10 +23,15 @@ class StoreUpdateProfile extends FormRequest
      */
     public function rules()
     {
-        $id = $this->segment(3);
+
+        if ($this->method() == 'PUT') {
+            $id = $this->segment(3);
+        } else {
+            $id = 0;
+        }
+
         return [
-            'name' => "required|min:3|max:255",
-            //'name' => "required|min:3|max:255|unique:profiles,name,{$id},id",
+            'name' => "required|min:3|max:255|unique:profiles,name,{$id},id",
             'description' => 'nullable|min:3|max:255',
         ];
     }
