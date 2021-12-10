@@ -8,10 +8,12 @@
     </ol>
 
     <h1 class="m-0 text-dark">Permissões
-        <a href="{{ route('permission.create') }}" class="btn btn-primary mr-5">
-            <i class="fas fa-save"></i>
-            <span class=m-4>Adicionar</span>
-        </a>
+        @can('update', Mode::class)
+            <a href="{{ route('permission.create') }}" class="btn btn-primary mr-5">
+                <i class="fas fa-save"></i>
+                <span class=m-4>Adicionar</span>
+            </a>
+        @endcan
     </h1>
 @stop
 
@@ -39,6 +41,7 @@
                 <thead>
                     <tr>
                         <th>Nome</th>
+                        <th>Descrição</th>
                         <th width="200px">Ações</th>
                     </tr>
                 </thead>
@@ -46,13 +49,20 @@
                     @foreach ($permissions as $permission)
                         <tr>
                             <td>{{ $permission->name }}</td>
+                            <td>{{ $permission->description }}</td>
                             <td style="width: 10px">
-                                <a href="{{ route('permission.edit', $permission->id) }}"
-                                    class="btn btn-warning">Alterar</a>
-                                <a href="{{ route('permission.show', $permission->id) }}"
-                                    class="btn btn-info">Visualizar</a>
-                                <a href="{{ route('permission.profiles', $permission->id) }}" class="btn btn-info">
-                                    Perfil</a>
+                                <a href="{{ route('permission.edit', $permission->id) }}" title="Alterar" alt="Alterar"
+                                    class="btn btn-warning">
+                                    <i class="fas fa-edit"></i>
+                                </a>
+                                <a href="{{ route('permission.show', $permission->id) }}" title="Visualizar"
+                                    alt="Visualizar" class="btn btn-info">
+                                    <i class="fas fa-search"></i>
+                                </a>
+                                <a href="{{ route('permission.profiles', $permission->id) }}" title="Perfil" alt="Perfil"
+                                    class="btn btn-info">
+                                    <i class="fas fa-address-book "></i>
+                                </a>
                             </td>
                         </tr>
                     @endforeach
