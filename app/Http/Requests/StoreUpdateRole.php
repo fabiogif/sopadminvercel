@@ -25,8 +25,7 @@ class StoreUpdateRole extends FormRequest
     {
         $id = $this->segment(3);
         return [
-            //'name' => "required|min:3|max:255|unique:roles,name,{$id},id",
-            'name' => "required|min:3|max:255",
+            'name' => "required|min:3|max:255|unique:roles,name,{$id},id",
             'description' => 'nullable|min:3|max:255',
         ];
     }
