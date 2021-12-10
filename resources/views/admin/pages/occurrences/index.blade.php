@@ -57,10 +57,10 @@
 
                             <td>{!! date('d/m/Y - h:m:s', strtotime($occurrence->updated_at)) !!} </td>
                             <td style="width: 10px">
-                                <a href="{{ route('occurrences.edit', $occurrence->id) }}"
-                                    class="btn btn-warning">Alterar</a>
-                                <a href="{{ route('occurrences.show', $occurrence->id) }}"
-                                    class="btn btn-info">Visualizar</a>
+                                <a href="{{ route('occurrences.edit', $occurrence->id) }}" class="btn btn-warning"><i
+                                        class="fas fa-edit"></i></a>
+                                <a href="{{ route('occurrences.show', $occurrence->id) }}" class="btn btn-info"><i
+                                        class="fas fa-search"></i></a>
                                 </a>
 
                             </td>

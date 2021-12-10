@@ -48,9 +48,9 @@
                             <td>{{ $typeOccurrence->name }}</td>
                             <td style="width: 10px">
                                 <a href="{{ route('typeOccurrences.edit', $typeOccurrence->id) }}"
-                                    class="btn btn-warning">Alterar</a>
+                                    class="btn btn-warning"><i class="fas fa-edit"></i></a>
                                 <a href="{{ route('typeOccurrences.show', $typeOccurrence->id) }}"
-                                    class="btn btn-info">Visualizar</a>
+                                    class="btn btn-info"><i class="fas fa-search"></i></a>
                                 </a>
 
                             </td>

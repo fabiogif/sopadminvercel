@@ -47,10 +47,10 @@
                         <tr>
                             <td>{{ $profile->name }}</td>
                             <td style="width: 10px">
-                                <a href="{{ route('profiles.edit', $profile->id) }}" class="btn btn-warning"><i
-                                        class="fas fa-edit"></i></a>
-                                <a href="{{ route('profiles.show', $profile->id) }}" class="btn btn-info"><i
-                                        class="fas fa-search"></i></a>
+                                <a href="{{ route('profiles.edit', $profile->id) }}" title="Alterar" alt="Alterar"
+                                    class="btn btn-warning"><i class="fas fa-edit"></i></a>
+                                <a href="{{ route('profiles.show', $profile->id) }}" title="Visualizar" alt="Visualizar"
+                                    class="btn btn-info"><i class="fas fa-search"></i></a>
                                 <a href="{{ route('profiles.permissions', $profile->id) }}" class="btn btn-warning">
                                     <i class="fas fa-lock"></i>
                                 </a>

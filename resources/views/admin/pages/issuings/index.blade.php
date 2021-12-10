@@ -45,8 +45,10 @@
                         <tr>
                             <td>{{ $issuing->name }}</td>
                             <td style="width: 10px">
-                                <a href="{{ route('issuings.edit', $issuing->id) }}" class="btn btn-warning">Alterar</a>
-                                <a href="{{ route('issuings.show', $issuing->id) }}" class="btn btn-info">Visualizar</a>
+                                <a href="{{ route('issuings.edit', $issuing->id) }}" class="btn btn-warning"><i
+                                        class="fas fa-edit"></i></a>
+                                <a href="{{ route('issuings.show', $issuing->id) }}" class="btn btn-info"><i
+                                        class="fas fa-search"></i></a>
                                 </a>
 
                             </td>
