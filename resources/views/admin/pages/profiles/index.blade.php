@@ -39,7 +39,7 @@
                 <thead>
                     <tr>
                         <th>Nome</th>
-                        <th width="250px">Ações</th>
+                        <th width="200px">Ações</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -47,8 +47,10 @@
                         <tr>
                             <td>{{ $profile->name }}</td>
                             <td style="width: 10px">
-                                <a href="{{ route('profiles.edit', $profile->id) }}" class="btn btn-warning">Alterar</a>
-                                <a href="{{ route('profiles.show', $profile->id) }}" class="btn btn-info">Visualizar</a>
+                                <a href="{{ route('profiles.edit', $profile->id) }}" class="btn btn-warning"><i
+                                        class="fas fa-edit"></i></a>
+                                <a href="{{ route('profiles.show', $profile->id) }}" class="btn btn-info"><i
+                                        class="fas fa-search"></i></a>
                                 <a href="{{ route('profiles.permissions', $profile->id) }}" class="btn btn-warning">
                                     <i class="fas fa-lock"></i>
                                 </a>

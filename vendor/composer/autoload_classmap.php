@@ -83,6 +83,8 @@ return array(
     'App\\Providers\\BroadcastServiceProvider' => $baseDir . '/app/Providers/BroadcastServiceProvider.php',
     'App\\Providers\\EventServiceProvider' => $baseDir . '/app/Providers/EventServiceProvider.php',
     'App\\Providers\\RouteServiceProvider' => $baseDir . '/app/Providers/RouteServiceProvider.php',
+    'App\\Providers\\TelescopeServiceProvider' => $baseDir . '/app/Providers/TelescopeServiceProvider.php',
+    'App\\Repositories\\Contracts\\TenantRepositoryInterface' => $baseDir . '/app/Repositories/Contracts/TenantRepositoryInterface.php',
     'App\\Services\\TenantService' => $baseDir . '/app/Services/TenantService.php',
     'App\\Tenant\\ManagerTenant' => $baseDir . '/app/Tenant/ManagerTenant.php',
     'App\\Tenant\\Observers\\TenantObserver' => $baseDir . '/app/Tenant/Observers/TenantObserver.php',

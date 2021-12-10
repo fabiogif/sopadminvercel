@@ -9,8 +9,8 @@ use Illuminate\Support\ServiceProvider;
 use App\Observers\PlanObserver;
 use App\Observers\ProductObserver;
 use App\Observers\TenantObserver;
-use App\Repostories\Contracts\TenantRepositoryInterface;
-use App\Repostories\TenantRepository;
+use App\Repositories\Contracts\TenantRepositoryInterface;
+use App\Repositories\TenantRepository\TenantRepository;
 
 class AppServiceProvider extends ServiceProvider
 {

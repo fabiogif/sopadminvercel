@@ -1,9 +1,9 @@
 <?php
 
-namespace App\Repostories;
+namespace App\Repositories\TenantRepository;
 
 use App\Models\Tenant;
-use App\Repostories\Contracts\TenantRepositoryInterface;
+use App\Repositories\Contracts\TenantRepositoryInterface;
 
 class TenantRepository implements TenantRepositoryInterface
 {

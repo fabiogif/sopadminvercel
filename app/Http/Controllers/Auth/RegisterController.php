@@ -76,6 +76,7 @@ class RegisterController extends Controller
         }
 
         $tenantService = app(TenantService::class);
+
         $user = $tenantService->make($planSession, $data);
 
         event(new TenantCreated($user));

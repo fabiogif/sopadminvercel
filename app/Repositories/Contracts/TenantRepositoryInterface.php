@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Repostories\Contracts;
+namespace App\Repositories\Contracts;
 
 interface TenantRepositoryInterface
 {

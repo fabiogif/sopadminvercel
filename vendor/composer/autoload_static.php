@@ -605,6 +605,8 @@ class ComposerStaticInit2f7cf4165480bc60b4f0e6d16605967a
         'App\\Providers\\BroadcastServiceProvider' => __DIR__ . '/../..' . '/app/Providers/BroadcastServiceProvider.php',
         'App\\Providers\\EventServiceProvider' => __DIR__ . '/../..' . '/app/Providers/EventServiceProvider.php',
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
+        'App\\Providers\\TelescopeServiceProvider' => __DIR__ . '/../..' . '/app/Providers/TelescopeServiceProvider.php',
+        'App\\Repositories\\Contracts\\TenantRepositoryInterface' => __DIR__ . '/../..' . '/app/Repositories/Contracts/TenantRepositoryInterface.php',
         'App\\Services\\TenantService' => __DIR__ . '/../..' . '/app/Services/TenantService.php',
         'App\\Tenant\\ManagerTenant' => __DIR__ . '/../..' . '/app/Tenant/ManagerTenant.php',
         'App\\Tenant\\Observers\\TenantObserver' => __DIR__ . '/../..' . '/app/Tenant/Observers/TenantObserver.php',

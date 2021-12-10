@@ -40,7 +40,7 @@
                     <tr>
                         <th>Nome</th>
                         <th>E-mail</th>
-                        <th width="350px">Ações</th>
+                        <th width="200px">Ações</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -49,8 +49,10 @@
                             <td>{{ $user->name }}</td>
                             <td>{{ $user->email }}</td>
                             <td style="width: 10px">
-                                <a href="{{ route('users.edit', $user->id) }}" class="btn btn-warning">Alterar</a>
-                                <a href="{{ route('users.show', $user->id) }}" class="btn btn-info">Visualizar</a>
+                                <a href="{{ route('users.edit', $user->id) }}" class="btn btn-warning"><i
+                                        class="fas fa-edit"></i></a>
+                                <a href="{{ route('users.show', $user->id) }}" class="btn btn-info"><i
+                                        class="fas fa-search"></i></a>
                                 <a href="{{ route('users.roles', $user->id) }}" class="btn btn-info" alt="Cargos"
                                     title="Cargos">
                                     <i class="fas fa-address-card"></i>
