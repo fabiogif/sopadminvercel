@@ -21,6 +21,17 @@ class MenuItemHelper
     }
 
     /**
+     * Check if a menu item is a header.
+     *
+     * @param  mixed  $item
+     * @return bool
+     */
+    public static function isSearchBar($item)
+    {
+        return is_string($item) || isset($item['header']);
+    }
+
+    /**
      * Check if a menu item is a link.
      *
      * @param  mixed  $item
@@ -29,7 +40,7 @@ class MenuItemHelper
     public static function isLink($item)
     {
         return isset($item['text']) &&
-               (isset($item['url']) || isset($item['route']));
+            (isset($item['url']) || isset($item['route']));
     }
 
     /**
@@ -41,7 +52,7 @@ class MenuItemHelper
     public static function isSubmenu($item)
     {
         return isset($item['text'], $item['submenu']) &&
-               is_array($item['submenu']);
+            is_array($item['submenu']);
     }
 
     /**
@@ -53,7 +64,7 @@ class MenuItemHelper
     public static function isLegacySearch($item)
     {
         return isset($item['text'], $item['search']) &&
-               $item['search'];
+            $item['search'];
     }
 
     /**
