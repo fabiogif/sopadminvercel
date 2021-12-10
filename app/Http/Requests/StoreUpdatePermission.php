@@ -27,7 +27,7 @@ class StoreUpdatePermission extends FormRequest
 
         return [
             //'name' => "required|min:3|max:255|unique:permissions,name,{$id},id",
-            'name' => "required|min:3|max:255|unique:permissions",
+            'name' => "required|min:3|max:255",
             'description' => 'nullable|min:3|max:255'
         ];
     }
