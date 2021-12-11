@@ -19,8 +19,8 @@ class CreateTenantsTable extends Migration
             $table->uuid('uuid');
             $table->string('cnpj')->unique();
             $table->string('cpf')->nullable();
-            $table->string('name')->unique();
-            $table->string('email')->unique();
+            $table->string('name');
+            $table->string('email');
             $table->string('url')->unique();
             $table->string('logo')->nullable();
 

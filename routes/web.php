@@ -118,9 +118,9 @@ Route::prefix('admin')
         Route::any('/permission/search', [App\Http\Controllers\Admin\ACL\PermissionController::class, 'search'])->name('permission.search');
         Route::resource('permission', PermissionController::class);
         //Home
-        Route::get('/', [App\Http\Controllers\Admin\PlanController::class, 'index'])->name('admin.index');
+        Route::get('/', [App\Http\Controllers\Admin\DashboardController::class, 'home'])->name('admin.index');
         //Ocorrencias
-        Route::any('/occurrences/search', [App\Http\Controllers\Admin\OccurrencesController::class, 'search'])->name('occurrences.search');
+        Route::any('/occurrences/search', [App\Http\Controllers\Admin\ACL\OccurrencesController::class, 'search'])->name('occurrences.search');
         Route::resource('occurrences', OccurrencesController::class);
 
         //Tipo de ocorrencia

@@ -23,7 +23,6 @@ class StoreUpdateTenant extends FormRequest
      */
     public function rules()
     {
-
         if ($this->method() == 'PUT') {
             $id = $this->segment(3);
         } else {
