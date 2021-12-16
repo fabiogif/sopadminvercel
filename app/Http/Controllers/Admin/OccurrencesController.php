@@ -42,10 +42,10 @@ class OccurrencesController extends Controller
 
     public function store(StoreUpdateOccurrences $request)
     {
-        $tenant = auth()->user()->tenant;
+        $user = auth()->user();
 
         $data = $request->all();
-        $data['users_id'] = $tenant->id;
+        $data['users_id'] = $user->id;
         $this->repository->create($data);
 
 
