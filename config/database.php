@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Str;
 
-$DATABASE_URL = parse_url(getenv("DATABASE_URL"));
+//$DATABASE_URL = parse_url(getenv("DATABASE_URL"));
 
 return [
     /*
@@ -63,7 +63,7 @@ return [
                 PDO::MYSQL_ATTR_SSL_CA => env('MYSQL_ATTR_SSL_CA'),
             ]) : [],
         ],
-        /*     'pgsql' => [
+        'pgsql' => [
             'driver' => 'pgsql',
             'url' => env('DATABASE_URL'),
             'host' => env('DB_HOST', '127.0.0.1'),
@@ -77,8 +77,8 @@ return [
             'schema' => 'public',
             'sslmode' => 'prefer',
         ],
-*/
-        'pgsql' => [
+
+        /*    'pgsql' => [
             'driver' => 'pgsql',
             'host' => $DATABASE_URL["host"],
             'port' => $DATABASE_URL["port"],
@@ -90,7 +90,7 @@ return [
             'schema' => 'public',
             'sslmode' => 'require',
         ],
-
+*/
         'sqlsrv' => [
             'driver' => 'sqlsrv',
             'url' => env('DATABASE_URL'),

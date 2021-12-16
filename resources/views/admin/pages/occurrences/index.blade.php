@@ -39,6 +39,7 @@
                 <thead>
                     <tr>
                         <th>Titulo</th>
+                        <th>Nome</th>
                         <th>Tipo de Ocorrência</th>
                         <th>Orgão Ocorrência</th>
                         <th>E-mail</th>
@@ -51,6 +52,7 @@
 
                         <tr>
                             <td>{{ $occurrence->title }}</td>
+                            <td>{{ $occurrence->name }}</td>
                             <td>{{ $occurrence->nameType }}</td>
                             <td>{{ $occurrence->nameIssuings }}</td>
                             <td>{{ $occurrence->email }}</td>

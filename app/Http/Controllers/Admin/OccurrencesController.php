@@ -8,6 +8,7 @@ use App\Models\Occurrences;
 use Illuminate\Http\Request;
 use App\Models\TypeOccurrence;
 use App\Models\Issuing;
+use Illuminate\Support\Facades\Storage;
 
 class OccurrencesController extends Controller
 {
@@ -36,7 +37,6 @@ class OccurrencesController extends Controller
     {
         $typeOccurrences = $this->typeOccurrence->orderBy('name')->get();
         $issuings = $this->issuing->orderBy('name')->get();
-
         return view('admin.pages.occurrences.create', ['typeOccurrences' => $typeOccurrences, 'issuings' => $issuings]);
     }
 
@@ -101,6 +101,7 @@ class OccurrencesController extends Controller
         if (!$occurrences) {
             return redirect()->back();
         }
+
         return view(
             'admin.pages.occurrences.edit',
             ['occurrences' => $occurrences, 'typeOccurrences' => $typeOccurrences, 'issuings' => $issuings]
@@ -113,6 +114,14 @@ class OccurrencesController extends Controller
 
         if (!$occurrences) {
             return redirect()->back();
+        }
+        $tenant = auth()->user()->tenant;
+
+        if ($request->hasFile('image') && $request->image->isValid()) {
+            if (Storage::exists($occurrences->image)) {
+                Storage::delete($occurrences->image);
+            }
+            $data['image'] = $request->image->store("tenant/{$tenant->uuid}products");
         }
         $occurrences->update($request->all());
         return  redirect()->route('occurrences.index');

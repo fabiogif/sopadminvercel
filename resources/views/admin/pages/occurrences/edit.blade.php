@@ -1,9 +1,9 @@
 @extends('adminlte::page')
 
-@section('title', 'Alterar Tipo de Ocorrência')
+@section('title', 'Alterar Ocorrência')
 
 @section('content_header')
-    <h1 class="m-0 text-dark">Alterar Tipo de Ocorrência</h1>
+    <h1 class="m-0 text-dark">Alterar Ocorrência</h1>
 @stop
 
 @section('content')
