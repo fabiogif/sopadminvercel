@@ -3,7 +3,9 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Resources\TenantResource;
 use App\Services\TenantService;
+use Illuminate\Http\Request;
 
 class TenantApiController extends Controller
 {
@@ -14,8 +16,22 @@ class TenantApiController extends Controller
         $this->tenantService = $tenantService;
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        return $this->tenantService->getAllTenants();
+        $pre_page = (int) $request->get('pre_page', 15);
+
+        $tenant = $this->tenantService->getAllTenants($pre_page);
+
+        return TenantResource::collection($tenant);
+    }
+
+    public function show($uuid)
+    {
+        $tenant = $this->tenantService->getTenantByUuid($uuid);
+
+        if (!$tenant) {
+            return response()->json(['message' => 'Not found'], 404);
+        }
+        return new TenantResource($tenant);
     }
 }

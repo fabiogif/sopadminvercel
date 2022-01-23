@@ -2,7 +2,7 @@
 
 namespace App\Repositories\Contracts;
 
-interface TenantRepositoryInterface
+interface OccurrencesRepositoryInterface
 {
     public function getAllTenants(int $pre_page);
 
