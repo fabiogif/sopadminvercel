@@ -39,9 +39,7 @@ class AppServiceProvider extends ServiceProvider
         if (env('APP_ENV') === 'production') {
             $url->forceScheme('https');
         }
-        if ($this->app->environment('production')) {
-            \URL::forceScheme('https');
-        }
+
         Paginator::useBootstrap();
         Plan::observe(PlanObserver::class);
         Tenant::observe(TenantObserver::class);
