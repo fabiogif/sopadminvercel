@@ -134,7 +134,8 @@ Route::prefix('admin')
 
 
 Route::get('/plan/{id}', [App\Http\Controllers\Site\SiteController::class, 'plan'])->name('plan.subscription');
-Route::get('/', [App\Http\Controllers\Site\SiteController::class, 'index'])->name('login');
+//Route::get('/', [App\Http\Controllers\Site\SiteController::class, 'index'])->name('site.home');
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('login');
 
 
 /*Route::get('/home', function () {
