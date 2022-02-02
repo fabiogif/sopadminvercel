@@ -19,6 +19,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 Route::get('/tenants/{uuid}', [App\Http\Controllers\Api\TenantApiController::class, 'show']);
 Route::get('/tenants', [App\Http\Controllers\Api\TenantApiController::class, 'index']);
+Route::post('/client', [App\Http\Controllers\Api\Auth\RegisterController::class, 'store']);
 
 Route::get('/occurrences', [App\Http\Controllers\Api\OccurrenceApiController::class, 'index']);
 Route::get('/occurrences/{uuid}', [App\Http\Controllers\Api\OccurrenceApiController::class, 'show']);
