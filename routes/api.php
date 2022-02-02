@@ -17,6 +17,6 @@ use Illuminate\Support\Facades\Route;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
-
+Route::get('/tenants/{uuid}', [App\Http\Controllers\Api\TenantApiController::class, 'show']);
 Route::get('/tenants', [App\Http\Controllers\Api\TenantApiController::class, 'index']);
 Route::get('/occurrences', [App\Http\Controllers\Api\OccurrenceApiController::class, 'index']);
