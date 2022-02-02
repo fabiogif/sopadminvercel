@@ -19,3 +19,4 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 Route::get('/tenants', [App\Http\Controllers\Api\TenantApiController::class, 'index']);
+Route::get('/occurrences', [App\Http\Controllers\Api\OccurrenceApiController::class, 'index']);

@@ -10,7 +10,7 @@ use App\Observers\PlanObserver;
 use App\Observers\ProductObserver;
 use App\Observers\TenantObserver;
 use App\Repositories\Contracts\TenantRepositoryInterface;
-use App\Repositories\TenantRepository\TenantRepository;
+use App\Repositories\TenantRepository;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Routing\UrlGenerator;
 
