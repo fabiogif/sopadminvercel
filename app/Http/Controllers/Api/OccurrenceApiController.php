@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\Api\StoreUpdateOccurrences;
 use App\Http\Resources\OccurrenceResource;
 use App\Services\OccurrenceService;
 use Illuminate\Http\Request;
@@ -33,5 +34,12 @@ class OccurrenceApiController extends Controller
             return response()->json(['message' => 'Not found'], 404);
         }
         return new OccurrenceResource($occurrence);
+    }
+
+    public function store(StoreUpdateOccurrences $request)
+    {
+        $order = $this->occurrenceService->createOccurrence($request->all());
+
+        return new OccurrenceResource($order);
     }
 }

@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Occurrences extends Model
 {
-    protected $fillable = ['title', 'name', 'description', 'address', 'users_id', 'email', 'issuings_id', 'type_occurrences_id', 'latitude', 'longitude'];
+    protected $fillable = ['title', 'name', 'description', 'cpf', 'rg', 'address', 'users_id', 'email', 'issuings_id', 'type_occurrences_id', 'latitude', 'longitude'];
     use HasFactory;
 
     public function search($filter = null)
