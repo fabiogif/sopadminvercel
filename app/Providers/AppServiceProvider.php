@@ -46,7 +46,6 @@ class AppServiceProvider extends ServiceProvider
         Category::observe(CategoryObserver::class);
         Product::observe(ProductObserver::class);
 
-
         Blade::if('admin', function () {
             $user = auth()->user();
             return $user->isAdmin();
