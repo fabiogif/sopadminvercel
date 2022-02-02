@@ -2,14 +2,17 @@
 
 namespace App\Providers;
 
-use App\Models\{Category, Plan, Product, Tenant};
+use App\Models\{Category, Occurrences, Plan, Product, Tenant};
 use App\Observers\CategoryObserver;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Support\ServiceProvider;
 use App\Observers\PlanObserver;
 use App\Observers\ProductObserver;
+use App\Observers\OccurrenceObserver;
 use App\Observers\TenantObserver;
+use App\Repositories\Contracts\OccurrenceRepositoryInterface;
 use App\Repositories\Contracts\TenantRepositoryInterface;
+use App\Repositories\OccurrenceRepository;
 use App\Repositories\TenantRepository;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Routing\UrlGenerator;
@@ -25,7 +28,11 @@ class AppServiceProvider extends ServiceProvider
     {
         $this->app->bind(
             TenantRepositoryInterface::class,
-            TenantRepository::class
+            TenantRepository::class,
+        );
+        $this->app->bind(
+            OccurrenceRepositoryInterface::class,
+            OccurrenceRepository::class
         );
     }
 
@@ -45,6 +52,7 @@ class AppServiceProvider extends ServiceProvider
         Tenant::observe(TenantObserver::class);
         Category::observe(CategoryObserver::class);
         Product::observe(ProductObserver::class);
+        // Occurrences::observe(OccurrenceObserver::class);
 
         Blade::if('admin', function () {
             $user = auth()->user();

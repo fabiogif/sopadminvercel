@@ -9,29 +9,29 @@ use Illuminate\Http\Request;
 
 class OccurrenceApiController extends Controller
 {
-    protected $OccurrenceService;
+    protected $occurrenceService;
 
-    public function __construct(OccurrenceService $OccurrenceService)
+    public function __construct(OccurrenceService $occurrenceService)
     {
-        $this->OccurrenceService = $OccurrenceService;
+        $this->occurrenceService = $occurrenceService;
     }
 
     public function index(Request $request)
     {
         $pre_page = (int) $request->get('pre_page', 15);
 
-        $Occurrence = $this->OccurrenceService->getAllOccurrences($pre_page);
+        $occurrence = $this->occurrenceService->getAllOccurrences($pre_page);
 
-        return OccurrenceResource::collection($Occurrence);
+        return OccurrenceResource::collection($occurrence);
     }
 
     public function show($uuid)
     {
-        $Occurrence = $this->OccurrenceService->getOccurrenceByUuid($uuid);
+        $occurrence = $this->occurrenceService->getOccurrenceByUuid($uuid);
 
-        if (!$Occurrence) {
+        if (!$occurrence) {
             return response()->json(['message' => 'Not found'], 404);
         }
-        return new OccurrenceResource($Occurrence);
+        return new OccurrenceResource($occurrence);
     }
 }

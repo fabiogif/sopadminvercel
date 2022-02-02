@@ -9,9 +9,9 @@ class OccurrenceRepository implements OccurrenceRepositoryInterface
 {
     protected $entity;
 
-    public function __construct(Occurrences $Occurrence)
+    public function __construct(Occurrences $occurrence)
     {
-        $this->entity = $Occurrence;
+        $this->entity = $occurrence;
     }
     public function getAllOccurrences(int $pre_page)
     {
