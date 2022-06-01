@@ -86,7 +86,7 @@
             <div class="row about-content">
                 <div class="col-lg-6 info mb-lg-0 mb-sm-5 mb-4 align-center">
                     <h3 class="title">Sobre o sistema</h3>
-                    <h6>Informções sobre sua atuação.</h6>
+                    <h6>Informações sobre sua atuação.</h6>
                     <p class="mt-md-4 mt-3 mb-0">Aqui vai algumas funcionalidades.</p>
                 </div>
                 <div class="col-lg-6">
