@@ -14,6 +14,7 @@ class OccurrenceApiController extends Controller
 
     public function __construct(OccurrenceService $occurrenceService)
     {
+
         $this->occurrenceService = $occurrenceService;
     }
 
@@ -36,10 +37,12 @@ class OccurrenceApiController extends Controller
         return new OccurrenceResource($occurrence);
     }
 
-    public function store(StoreUpdateOccurrences $request)
+    public function store(Request $request)
     {
-        $order = $this->occurrenceService->createOccurrence($request->all());
+        dd($request->all());
+        die;
+        $occurrence = $this->occurrenceService->createOccurrence($request->all());
 
-        return new OccurrenceResource($order);
+        return new OccurrenceResource($occurrence);
     }
 }
