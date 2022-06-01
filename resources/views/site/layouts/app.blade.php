@@ -72,7 +72,7 @@
                 </div>
                 <div class="col-lg-5 col-md-12 col-sm-12 order-first text-lg-left text-center">
                     <div>
-                        <img src="{{ url('images/banner-round.png') }}" alt="" class="rounded-circle img-fluid">
+                        <img src="{{ url('images/geo.jpg') }}" alt="" class="rounded-circle img-fluid">
                     </div>
                 </div>
             </div>
