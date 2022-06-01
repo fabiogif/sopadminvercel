@@ -27,33 +27,34 @@
                 <span class="fa fa-shield"></span>
             </a>
 
-            <button class="navbar-toggler bg-gradient" type="button" data-toggle="collapse" data-target="#navbarNav"
+            < <!--button class="navbar-toggler bg-gradient" type="button" data-toggle="collapse" data-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"> /span>
-            </button>
+                <span class="navbar-toggler-icon"> </span>
+                </button>
 
-            <!--div class="collapse navbar-collapse" id="navbarNav">
-              <ul class="navbar-nav m-auto">
-                <li class="nav-item active">
-                  <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="about.html">About</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="services.html">Services</a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" href="contact.html">Contact</a>
-                </li>
-              </ul>
-              <ul class="navbar-nav">
-                <li class="nav-item">
-                  <a href="#demo" class="btn btn-primary btn-style">View Demo</a>
-                </li>
-              </ul>
-            </div>
-          </nav-->
+                div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav m-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="index.html">Home <span
+                                class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="about.html">About</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="services.html">Services</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="contact.html">Contact</a>
+                    </li>
+                </ul>
+                <ul class="navbar-nav">
+                    <li class="nav-item">
+                        <a href="#demo" class="btn btn-primary btn-style">View Demo</a>
+                    </li>
+                </ul>
+                </div>
+                </nav-->
     </header>
     <!-- //site header -->
 
