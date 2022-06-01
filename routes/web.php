@@ -129,7 +129,7 @@ Route::prefix('admin')
         Route::any('/typeOccurrences/search', [App\Http\Controllers\Admin\TypeOccurrenceController::class , 'search'])->name('typeOccurrences.search');
         Route::resource('typeOccurrences', TypeOccurrenceController::class);
 
-        Route::any('/statusOccurrences/search', [App\Http\Controllers\Admin\StatusOccurrenceController::class , 'search'])->name('typeOccurrences.search');
+        Route::any('/statusOccurrences/search', [App\Http\Controllers\Admin\StatusOccurrenceController::class , 'search'])->name('statusOccurrences.search');
         Route::resource('statusOccurrences', StatusOccurrenceController::class);
 
         //Orgão
