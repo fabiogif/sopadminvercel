@@ -20,7 +20,7 @@ class OccurrenceApiController extends Controller
 
     public function index(Request $request)
     {
-        $pre_page = (int) $request->get('pre_page', 15);
+        $pre_page = (int)$request->get('pre_page', 15);
 
         $occurrence = $this->occurrenceService->getAllOccurrences($pre_page);
 
@@ -39,8 +39,8 @@ class OccurrenceApiController extends Controller
 
     public function store(Request $request)
     {
-        dd($request->all());
-        die;
+        $request->all();
+
         $occurrence = $this->occurrenceService->createOccurrence($request->all());
 
         return new OccurrenceResource($occurrence);
