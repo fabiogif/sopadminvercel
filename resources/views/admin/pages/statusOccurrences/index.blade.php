@@ -7,7 +7,7 @@
         <li class="breadcrumb-item active"><a href="{{ route('statusOccurrences.index') }}">Status de Ocorrência</a> </li>
     </ol>
 
-    <h1 class="m-0 text-dark">Tipo de Ocorrência
+    <h1 class="m-0 text-dark">Status de Ocorrência
         <a href="{{ route('statusOccurrences.create') }}" class="btn btn-primary mr-5">
             <i class="fas fa-save"></i>
             <span class=m-4>Adicionar</span>
@@ -18,7 +18,6 @@
 @section('content')
     <div class="card">
         @include('admin.includes.alerts')
-
         <div class="card-header">
             <form action="{{ route('statusOccurrences.search') }}" method="POST" class="form form-inline">
                 @csrf
@@ -56,7 +55,7 @@
                             </td>
                         </tr>
                     @endforeach
-                    @if (count($statusOccurrence) == 0)
+                    @if (count($statusOccurrences) == 0)
                         <td>Não existe informações</td>
                     @endif
                 </tbody>

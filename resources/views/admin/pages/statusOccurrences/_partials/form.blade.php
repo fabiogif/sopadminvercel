@@ -5,7 +5,7 @@
             <div class="form-group">
                 <label for="name">Nome</label>
                 <input type="text" name="name" class="form-control" placeholder="Nome"
-                    value="{{ $typeOccurrence->name ?? old('name') }}">
+                    value="{{ $statusOccurrence->name ?? old('name') }}">
             </div>
         </div>
         <div class="col-lg-2 col-md-2 col-sm-2 col-xs-12">

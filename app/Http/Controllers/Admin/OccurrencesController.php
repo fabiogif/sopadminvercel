@@ -8,16 +8,22 @@ use App\Models\Occurrences;
 use Illuminate\Http\Request;
 use App\Models\TypeOccurrence;
 use App\Models\Issuing;
+use App\Models\StatusOccurrence;
 use Illuminate\Support\Facades\Storage;
 
 class OccurrencesController extends Controller
 {
     protected $repository;
 
-    public function __construct(Occurrences $occurrences, TypeOccurrence $typeOccurrence, Issuing $issuing)
+    public function __construct(
+        Occurrences $occurrences,
+        TypeOccurrence $typeOccurrence,
+        Issuing $issuing,
+        StatusOccurrence $statusOccurrence)
     {
         $this->repository = $occurrences;
         $this->typeOccurrence = $typeOccurrence;
+        $this->statusOccurrence = $statusOccurrence;
         $this->issuing = $issuing;
     }
 
@@ -30,14 +36,19 @@ class OccurrencesController extends Controller
     public function index()
     {
         $occurrences = $this->repository->paginate();
-        return view('admin.pages.occurrences.index',  ['occurrences' => $occurrences]);
+        return view('admin.pages.occurrences.index', ['occurrences' => $occurrences]);
     }
 
     public function create()
     {
         $typeOccurrences = $this->typeOccurrence->orderBy('name')->get();
+        $statusOccurrences = $this->statusOccurrence->orderBy('name')->get();
         $issuings = $this->issuing->orderBy('name')->get();
-        return view('admin.pages.occurrences.create', ['typeOccurrences' => $typeOccurrences, 'issuings' => $issuings]);
+
+        return view('admin.pages.occurrences.create', [
+            'typeOccurrences' => $typeOccurrences,
+            'issuings' => $issuings,
+            'statusOccurrences' => $statusOccurrences]);
     }
 
     public function store(StoreUpdateOccurrences $request)
@@ -55,13 +66,21 @@ class OccurrencesController extends Controller
     public function show($id)
     {
         $occurrences = $this->repository->where('id', $id)->first();
+        $statusOccurrences = $this->statusOccurrence->orderBy('name')->get();
+        $typeOccurrences = $this->typeOccurrence->orderBy('name')->get();
+
         $issuings = $this->issuing->orderBy('name')->get();
 
         if (!$occurrences) {
             return redirect()->back();
         }
 
-        return  view('admin.pages.occurrences.show', ['occurrences' => $occurrences, 'issuings' => $issuings]);
+        return view('admin.pages.occurrences.show', [
+            'typeOccurrences' => $typeOccurrences,
+            'occurrences' => $occurrences,
+            'issuings' => $issuings,
+            'statusOccurrences' => $statusOccurrences
+        ]);
     }
 
     public function destroy($id)
@@ -73,7 +92,7 @@ class OccurrencesController extends Controller
         }
         $occurrences->delete();
 
-        return  redirect()->route('occurrences.index')->with('messageSuccess', 'Excluido com sucesso');
+        return redirect()->route('occurrences.index')->with('messageSuccess', 'Excluido com sucesso');
     }
 
 
@@ -85,17 +104,19 @@ class OccurrencesController extends Controller
 
         return view(
             'admin.pages.occurrences.index',
-            [
-                'occurrences' => $occurrences,
-                'filters' => $filters
-            ]
+        [
+            'occurrences' => $occurrences,
+            'filters' => $filters
+        ]
         );
     }
 
     public function edit($id)
     {
         $occurrences = $this->repository->where('id', $id)->first();
+        $statusOccurrences = $this->statusOccurrence->orderBy('name')->get();
         $typeOccurrences = $this->typeOccurrence->orderBy('name')->get();
+
         $issuings = $this->issuing->orderBy('name')->get();
 
         if (!$occurrences) {
@@ -103,8 +124,11 @@ class OccurrencesController extends Controller
         }
 
         return view(
-            'admin.pages.occurrences.edit',
-            ['occurrences' => $occurrences, 'typeOccurrences' => $typeOccurrences, 'issuings' => $issuings]
+            'admin.pages.occurrences.edit', [
+            'occurrences' => $occurrences,
+            'typeOccurrences' => $typeOccurrences,
+            'statusOccurrences' => $statusOccurrences,
+            'issuings' => $issuings]
         );
     }
 
@@ -124,6 +148,6 @@ class OccurrencesController extends Controller
             $data['image'] = $request->image->store("tenant/{$tenant->uuid}products");
         }
         $occurrences->update($request->all());
-        return  redirect()->route('occurrences.index');
+        return redirect()->route('occurrences.index');
     }
 }
