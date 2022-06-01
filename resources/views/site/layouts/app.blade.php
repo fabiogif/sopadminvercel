@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>SOP | Sistema de ocorrências Públicas</title>
+    <title>SOP | Sistema de Ocorrências Públicas</title>
     <link href="https://fonts.googleapis.com/css?family=Poppins:300,400&display=swap" rel="stylesheet">
 
 
@@ -23,11 +23,11 @@
     <!-- site header -->
     <header id="site-header" class="fixed-top">
         <nav class="navbar navbar-expand-lg navbar-dark">
-            <a class="navbar-brand" href="index.html">SOP
+            <a class="navbar-brand" href="./">SOP
                 <span class="fa fa-shield"></span>
             </a>
 
-            < <!--button class="navbar-toggler bg-gradient" type="button" data-toggle="collapse" data-target="#navbarNav"
+            <!--button class="navbar-toggler bg-gradient" type="button" data-toggle="collapse" data-target="#navbarNav"
                 aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"> </span>
                 </button>
@@ -35,8 +35,7 @@
                 div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav m-auto">
                     <li class="nav-item active">
-                        <a class="nav-link" href="index.html">Home <span
-                                class="sr-only">(current)</span></a>
+                        <a class="nav-link" href="./">Home <span class="sr-only">(current)</span></a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="about.html">About</a>
@@ -64,7 +63,7 @@
         <div class="container">
             <div class="row align-items-center">
                 <div class="col-lg-7 col-md-12 col-sm-12 order-lg-first mt-lg-0 mt-4">
-                    <h1 class="mb-4 title"><strong>SOP | </strong>Sistema de ocorrências Públicas</strong>
+                    <h1 class="mb-4 title"><strong>SOP | </strong>Sistema de Ocorrências Públicas</strong>
                     </h1>
                     <p>Gestão de ocorrências com geolocalização.</p>
                     <div class="mt-5">
@@ -220,7 +219,7 @@
                 <div class="row">
                     <div class="col-lg-4">
                         <div class="footer-logo mb-3">
-                            <a href="index.html">
+                            <a href="./">
                                 <span class="fa fa-shield"></span> SOP
                             </a>
                         </div>
