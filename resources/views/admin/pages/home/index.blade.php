@@ -59,7 +59,7 @@
                     <p>Ocorrência</p>
                 </div>
                 <div class="icon">
-                    <i class="fas fa-utensils"></i>
+                    <i class="fas fa-tablet"></i>
                 </div>
                 <a href="/admin/occurrences" class="small-box-footer">Mais informações <i
                         class="fas fa-arrow-circle-right"></i></a>
