@@ -64,6 +64,7 @@
                     <label for="remember">{{ __('adminlte::adminlte.remember_me') }}</label>
                 </div>
             </div>
+
             <div class="col-5">
                 <button type=submit
                     class="btn btn-block {{ config('adminlte.classes_auth_btn', 'btn-flat btn-primary') }}">
@@ -85,6 +86,11 @@
             </a>
         </p>
     @endif
+    <p class="my-0-1">
+        <a href="./">
+            Voltar
+        </a>
+    </p>
 
     {{-- Register link --
     @if ($register_url)
