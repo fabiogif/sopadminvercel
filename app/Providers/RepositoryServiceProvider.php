@@ -29,7 +29,7 @@ class RepositoryServiceProvider extends ServiceProvider
         );
         $this->app->bind(
             OccurrenceRepositoryInterface::class,
-            TenantRepositoryInterface::class
+            OccurrenceRepository::class
         );
     }
 

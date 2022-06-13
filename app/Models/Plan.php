@@ -32,6 +32,12 @@ class Plan extends Model
         return $this->hasMany(Tenant::class);
     }
 
+    public function occurrences()
+    {
+        $this->hasMany(Occurrences::class);
+
+    }
+
     public function profilesAvailable($filter = null)
     {
         $profiles = Profile::whereNotIn('profiles.id', function ($query) {

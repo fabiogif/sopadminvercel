@@ -38,4 +38,8 @@ class Occurrences extends Model
 
         return $occurrences;
     }
+    public function plan()
+    {
+        return $this->belongsTo(Plan::class);
+    }
 }

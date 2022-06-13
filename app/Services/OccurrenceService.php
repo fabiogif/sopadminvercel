@@ -4,7 +4,6 @@ namespace App\Services;
 
 use App\Models\Plan;
 use App\Repositories\Contracts\OccurrenceRepositoryInterface;
-use phpDocumentor\Reflection\DocBlock\Tags\Var_;
 
 class OccurrenceService
 {
@@ -32,30 +31,47 @@ class OccurrenceService
         $this->plan = $plan;
         $this->data = $data;
 
-        $Occurrence =  $this->createOccurrence();
+        $Occurrence = $this->createOccurrence();
         return $this->createUser($Occurrence);
+    }
+    public function createNewOccurrence(array $data)
+    {
+
+        return $this->repository->createNewOccurrence($data);
     }
 
     public function createOccurrence()
     {
         $data = $this->data;
 
-        return $this->plan->Occurrences()->create([
-            'cnpj' =>  $data['cnpj'],
-            'cpf' =>   $data['cpf'] ?? '',
-            'name' =>  $data['empresa'] ??  $data['name'],
+        return $this->plan->occurrences()->create([
+            'title' => $data['title'],
+            'name' => $data['name'],
+            'description' => $data['description'],
+            'cpf' => $data['cpf'] ?? '',
+            'rg' => $data['rg'],
+            'address' => $data['address'],
+            'users_id' => $data['users_id'],
             'email' => $data['email'],
-            'subscription' => now(),
-            'expires_at' => now()->addDays(7),
+            'issuings_id' => $data['issuings_id'],
+            'type_occurrences_id' => $data['type_occurrences_id'],
+            'latitude' => $data['latitude'],
+            'longitude' => $data['longitude'],
+            'status_occurrences_id' => $data['status_occurrences_id'],
+            'cnpj' => $data['cnpj'],
+            'subscription' => now()
         ]);
     }
 
     public function createUser($Occurrence)
     {
-        return  $Occurrence->users()->create([
+        return $Occurrence->users()->create([
             'name' => $this->data['name'],
             'email' => $this->data['email'],
             'password' => bcrypt($this->data['password']),
         ]);
     }
+
+
+
 }

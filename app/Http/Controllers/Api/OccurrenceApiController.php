@@ -45,4 +45,15 @@ class OccurrenceApiController extends Controller
 
         return new OccurrenceResource($occurrence);
     }
+
+    public function createNewOccurrence(StoreUpdateOccurrences $request)
+    {
+        $occurrence = $this->occurrenceService->createNewOccurrence($request->all());
+        if (!$occurrence) {
+            return response()->json(['message', 'Ocorrência não cadastrada'], 404);
+        }
+        return new OccurrenceResource($occurrence);
+
+    }
+
 }

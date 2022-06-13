@@ -98,7 +98,7 @@ abstract class HasOneOrMany extends Relation
     {
         $whereIn = $this->whereInMethod($this->parent, $this->localKey);
 
-        $this->getRelationQuery()->{$whereIn}(
+        $this->getRelationQuery()->{ $whereIn}(
             $this->foreignKey, $this->getKeys($models, $this->localKey)
         );
     }
@@ -182,7 +182,7 @@ abstract class HasOneOrMany extends Relation
         $foreign = $this->getForeignKeyName();
 
         return $results->mapToDictionary(function ($result) use ($foreign) {
-            return [$this->getDictionaryKey($result->{$foreign}) => $result];
+            return [$this->getDictionaryKey($result->{ $foreign}) => $result];
         })->all();
     }
 
@@ -352,12 +352,12 @@ abstract class HasOneOrMany extends Relation
      */
     public function getRelationExistenceQueryForSelfRelation(Builder $query, Builder $parentQuery, $columns = ['*'])
     {
-        $query->from($query->getModel()->getTable().' as '.$hash = $this->getRelationCountHash());
+        $query->from($query->getModel()->getTable() . ' as ' . $hash = $this->getRelationCountHash());
 
         $query->getModel()->setTable($hash);
 
         return $query->select($columns)->whereColumn(
-            $this->getQualifiedParentKeyName(), '=', $hash.'.'.$this->getForeignKeyName()
+            $this->getQualifiedParentKeyName(), '=', $hash . '.' . $this->getForeignKeyName()
         );
     }
 
