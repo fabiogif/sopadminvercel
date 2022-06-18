@@ -616,6 +616,7 @@ class ComposerStaticInit2f7cf4165480bc60b4f0e6d16605967a
         'App\\Listeners\\AddRoleTenant' => __DIR__ . '/../..' . '/app/Listeners/AddRoleTenant.php',
         'App\\Models\\Category' => __DIR__ . '/../..' . '/app/Models/Category.php',
         'App\\Models\\Client' => __DIR__ . '/../..' . '/app/Models/Client.php',
+        'App\\Models\\ClientConsumer' => __DIR__ . '/../..' . '/app/Models/ClientConsumer.php',
         'App\\Models\\DetailPlan' => __DIR__ . '/../..' . '/app/Models/DetailPlan.php',
         'App\\Models\\Issuing' => __DIR__ . '/../..' . '/app/Models/Issuing.php',
         'App\\Models\\Occurrences' => __DIR__ . '/../..' . '/app/Models/Occurrences.php',

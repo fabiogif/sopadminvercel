@@ -26,7 +26,8 @@ class Occurrences extends Model
             'issuings.id as idIssuings',
             'issuings.name as nameIssuings',
             'type_occurrences.id as idType',
-            'type_occurrences.name as nameType'
+            'type_occurrences.name as nameType',
+            'status_occurrences_id as status_occurrences_id',
         )->join('issuings', 'issuings.id', '=', 'occurrences.issuings_id')
             ->join('type_occurrences', function ($join) {
             $join->on('occurrences.type_occurrences_id', '=', 'type_occurrences.id');

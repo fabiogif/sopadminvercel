@@ -3,9 +3,9 @@
 namespace App\Repositories;
 
 use App\Models\Client;
-use App\Repositories\Contracts\ClientRepositoryInterface;
+use App\Repositories\Contracts\ClientConsumerRepositoryInterface;
 
-class ClientRepository implements ClientRepositoryInterface
+class ClientConsumerRepository implements ClientConsumerRepositoryInterface
 {
     protected $entity;
 
@@ -15,14 +15,14 @@ class ClientRepository implements ClientRepositoryInterface
     }
 
 
-    public function createNewClient(array $data)
+    public function createNewClientConsumer(array $data)
     {
         $data['password'] = bcrypt($data['password']);
 
         return $this->entity->create($data);
     }
 
-    public function getClienteById(int $id)
+    public function getClienteConsumerById(int $id)
     {
     //return $this->entity->find($id);
     }

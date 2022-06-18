@@ -73,6 +73,7 @@ return array(
     'App\\Listeners\\AddRoleTenant' => $baseDir . '/app/Listeners/AddRoleTenant.php',
     'App\\Models\\Category' => $baseDir . '/app/Models/Category.php',
     'App\\Models\\Client' => $baseDir . '/app/Models/Client.php',
+    'App\\Models\\ClientConsumer' => $baseDir . '/app/Models/ClientConsumer.php',
     'App\\Models\\DetailPlan' => $baseDir . '/app/Models/DetailPlan.php',
     'App\\Models\\Issuing' => $baseDir . '/app/Models/Issuing.php',
     'App\\Models\\Occurrences' => $baseDir . '/app/Models/Occurrences.php',

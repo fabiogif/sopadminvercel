@@ -26,6 +26,6 @@ class RegisterController extends Controller
             return response()->json(['message', 'Client not found'], 404);
         }
 
-        return  new ClientResource($client);
+        return new ClientResource($client);
     }
 }

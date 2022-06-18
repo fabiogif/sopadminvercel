@@ -3,10 +3,14 @@
 namespace App\Providers;
 
 use App\Repositories\{
+    ClientConsumerRepository,
+    ClientRepository,
     TenantRepository,
     OccurrenceRepository
 };
 use App\Repositories\Contracts\{
+    ClientConsumerRepositoryInterface,
+    ClientRepositoryInterface,
     OccurrenceRepositoryInterface,
     TenantRepositoryInterface,
 };
@@ -30,6 +34,14 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(
             OccurrenceRepositoryInterface::class,
             OccurrenceRepository::class
+        );
+        $this->app->bind(
+            ClientRepositoryInterface::class,
+            ClientRepository::class
+        );    
+        $this->app->bind(
+            ClientConsumerRepositoryInterface::class,
+            ClientConsumerRepository::class
         );
     }
 
