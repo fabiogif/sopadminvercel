@@ -21,4 +21,10 @@ class ClientService
     {
         return $this->clientRepository->createNewClient($data);
     }
+
+    public function getClienteById($id)
+    {
+        return $this->clientRepository->getClienteById($id);
+
+    }
 }

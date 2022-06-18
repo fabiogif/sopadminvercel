@@ -4,6 +4,7 @@ namespace App\Repositories;
 
 use App\Models\Client;
 use App\Repositories\Contracts\ClientRepositoryInterface;
+use Illuminate\Support\Str;
 
 class ClientRepository implements ClientRepositoryInterface
 {
@@ -24,6 +25,6 @@ class ClientRepository implements ClientRepositoryInterface
 
     public function getClienteById(int $id)
     {
-    //return $this->entity->find($id);
+        return $this->entity->find($id);
     }
 }

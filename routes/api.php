@@ -10,6 +10,8 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 Route::get('/tenants/{uuid}', [App\Http\Controllers\Api\TenantApiController::class , 'show']);
 Route::get('/tenants', [App\Http\Controllers\Api\TenantApiController::class , 'index']);
+Route::get('/client/{id}', [App\Http\Controllers\Api\Auth\RegisterController::class , 'show']);
+
 Route::post('/client', [App\Http\Controllers\Api\Auth\RegisterController::class , 'store']);
 Route::post('/clientConsumer', [App\Http\Controllers\Api\Auth\RegisterController::class , 'storeConsumer']);
 
