@@ -18,9 +18,9 @@ class OccurrenceRepository implements OccurrenceRepositoryInterface
         return $this->entity->paginate($pre_page);
     }
 
-    public function getOccurrenceByUuid(string $uuid)
+    public function getOccurrenceById(string $id)
     {
-        return $this->entity->where('uuid', $uuid)->first();
+        return $this->entity->where('id', $id)->first();
     }
 
     public function create(string $name, string $description, string $cpf, string $cnpj, string $rg, string $address, string $email, int $users_id, int $issuings_id, int $type_occurrences_id, string $latitude, string $longitude, string $status_occurrences_id, string $comment, string $subscription)

@@ -21,9 +21,9 @@ class OccurrenceService
         return $this->repository->getAllOccurrences($pre_page);
     }
 
-    public function getOccurrenceByUuid(string $uuid)
+    public function getOccurrenceById(string $id)
     {
-        return $this->repository->getOccurrenceByUuid($uuid);
+        return $this->repository->getOccurrenceById($id);
     }
 
     public function make(Plan $plan, array $data)

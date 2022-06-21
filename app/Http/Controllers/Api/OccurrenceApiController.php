@@ -27,9 +27,9 @@ class OccurrenceApiController extends Controller
         return OccurrenceResource::collection($occurrence);
     }
 
-    public function show($uuid)
+    public function show($id)
     {
-        $occurrence = $this->occurrenceService->getOccurrenceByUuid($uuid);
+        $occurrence = $this->occurrenceService->getOccurrenceById($id);
 
         if (!$occurrence) {
             return response()->json(['message' => 'Not found'], 404);

@@ -6,7 +6,7 @@ interface OccurrenceRepositoryInterface
 {
     public function getAllOccurrences(int $pre_page);
 
-    public function getOccurrenceByUuid(string $uuid);
+    public function getOccurrenceById(string $id);
 
     public function createNewOccurrence(array $data);
 
