@@ -20,6 +20,7 @@ class OccurrenceApiController extends Controller
 
     public function index(Request $request)
     {
+
         $pre_page = (int)$request->get('pre_page', 15);
 
         $occurrence = $this->occurrenceService->getAllOccurrences($pre_page);
@@ -48,7 +49,9 @@ class OccurrenceApiController extends Controller
 
     public function createNewOccurrence(StoreUpdateOccurrences $request)
     {
+
         $occurrence = $this->occurrenceService->createNewOccurrence($request->all());
+
         if (!$occurrence) {
             return response()->json(['message', 'Ocorrência não cadastrada'], 404);
         }

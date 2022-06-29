@@ -36,7 +36,6 @@ class OccurrenceService
     }
     public function createNewOccurrence(array $data)
     {
-
         return $this->repository->createNewOccurrence($data);
     }
 
@@ -59,6 +58,7 @@ class OccurrenceService
             'longitude' => $data['longitude'],
             'status_occurrences_id' => $data['status_occurrences_id'],
             'cnpj' => $data['cnpj'],
+            'clients_id' => $data['clients_id'],
             'subscription' => now()
         ]);
     }

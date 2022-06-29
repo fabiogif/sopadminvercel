@@ -25,6 +25,7 @@ interface OccurrenceRepositoryInterface
         string $longitude,
         string $status_occurrences_id,
         string $comment,
-        string $subscription
+        string $subscription,
+        string $clients_id
         );
 }

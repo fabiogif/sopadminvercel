@@ -34,7 +34,7 @@ class RegisterController extends Controller
         $client = $this->clientService->getClienteById($id);
 
         if (!$client) {
-            return response()->json(['message' => 'Client Not found'], 404);
+            return response()->json(['message' => 'Cliente não encontrado'], 404);
         }
         return new ClientResource($client);
     }

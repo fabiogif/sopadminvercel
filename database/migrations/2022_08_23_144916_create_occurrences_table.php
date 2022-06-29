@@ -25,6 +25,7 @@ class CreateOccurrencesTable extends Migration
 
 
             $table->unsignedBigInteger('users_id');
+            $table->unsignedBigInteger('clients_id');
             $table->unsignedBigInteger('issuings_id');
             $table->unsignedBigInteger('type_occurrences_id');
             $table->unsignedBigInteger('status_occurrences_id');
@@ -33,6 +34,7 @@ class CreateOccurrencesTable extends Migration
             $table->decimal('longitude', 9, 6)->nullable();
 
             $table->foreign('users_id')->references('id')->on('users')->onDelete('cascade');
+            $table->foreign('clients_id')->references('id')->on('clients')->onDelete('cascade');
             $table->foreign('issuings_id')->references('id')->on('issuings')->onDelete('cascade');
             $table->foreign('type_occurrences_id')->references('id')->on('type_occurrences')->onDelete('cascade');
             $table->foreign('status_occurrences_id')->references('id')->on('status_occurrences')->onDelete('cascade');
