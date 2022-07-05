@@ -115,12 +115,12 @@ class ProductController extends Controller
             if (Storage::exists($product->image)) {
                 Storage::delete($product->image);
             }
-            $data['image'] = $request->image->store("tenant/{$tenant->uuid}products");
+            $data['image'] = $request->image->store("tenants/{$tenant->uuid}products");
         }
 
         $product->update($data);
 
-        return  redirect()->route('products.index');
+        return redirect()->route('products.index');
     }
 
     /**
@@ -143,7 +143,7 @@ class ProductController extends Controller
 
         $product->delete();
 
-        return  redirect()->route('products.index');
+        return redirect()->route('products.index');
     }
 
     public function search(Request $request)
@@ -158,10 +158,10 @@ class ProductController extends Controller
 
         return view(
             'admin.pages.products.index',
-            [
-                'products' => $product,
-                'filters' => $filters
-            ]
+        [
+            'products' => $product,
+            'filters' => $filters
+        ]
         );
     }
 }

@@ -27,11 +27,11 @@ class AppServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->bind(
-            TenantRepositoryInterface::class,
-            TenantRepository::class,
+            TenantRepositoryInterface::class ,
+            TenantRepository::class ,
         );
         $this->app->bind(
-            OccurrenceRepositoryInterface::class,
+            OccurrenceRepositoryInterface::class ,
             OccurrenceRepository::class
         );
     }
@@ -52,9 +52,9 @@ class AppServiceProvider extends ServiceProvider
         Tenant::observe(TenantObserver::class);
         Category::observe(CategoryObserver::class);
         Product::observe(ProductObserver::class);
-        // Occurrences::observe(OccurrenceObserver::class);
+        Occurrences::observe(OccurrenceObserver::class);
 
-        Blade::if('admin', function () {
+        Blade::if ('admin', function () {
             $user = auth()->user();
             return $user->isAdmin();
         });

@@ -28,7 +28,7 @@ class AuthClientController extends Controller
 
     public function me(Request $request)
     {
-        $client =   $request->user();
+        $client = $request->user();
         return new ClientResource($client);
     }
 

@@ -48,6 +48,12 @@ class TenantController extends Controller
     {
         $data = $request->all();
 
+        $tenant = auth()->user()->tenant;
+
+        if ($request->hasFile('logo') && $request->logo->isValid()) {
+            $data['logo'] = $request->logo->store("tenants/{$tenant->uuid}/tenants");
+        }
+
         $this->repository->create($data);
 
         return redirect()->route('tenants.index');
@@ -105,16 +111,17 @@ class TenantController extends Controller
         $data = $request->all();
 
         if ($request->hasFile('logo') && $request->logo->isValid()) {
+
             if (Storage::exists($tenant->logo)) {
                 Storage::delete($tenant->logo);
             }
-            $data['logo'] = $request->logo->store("tenant/{$tenant->uuid}tenants");
-        }
 
+            $data['logo'] = $request->logo->store("tenant/{$tenant->uuid}/tenants");
+        }
 
         $tenant->update($data);
 
-        return  redirect()->route('tenants.index');
+        return redirect()->route('tenants.index');
     }
 
     /**
@@ -137,7 +144,7 @@ class TenantController extends Controller
 
         $tenant->delete();
 
-        return  redirect()->route('tenants.index');
+        return redirect()->route('tenants.index');
     }
 
     public function search(Request $request)
@@ -152,10 +159,10 @@ class TenantController extends Controller
 
         return view(
             'admin.pages.tenants.index',
-            [
-                'tenants' => $tenant,
-                'filters' => $filters
-            ]
+        [
+            'tenants' => $tenant,
+            'filters' => $filters
+        ]
         );
     }
 }
