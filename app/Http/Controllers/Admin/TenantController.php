@@ -51,7 +51,7 @@ class TenantController extends Controller
         $tenant = auth()->user()->tenant;
 
         if ($request->hasFile('logo') && $request->logo->isValid()) {
-            $data['logo'] = $request->logo->store("tenants/{$tenant->uuid}/tenants");
+            $data['logo'] = $request->logo->store("tenants/{$tenant->uuid}tenants");
         }
 
         $this->repository->create($data);
@@ -116,7 +116,7 @@ class TenantController extends Controller
                 Storage::delete($tenant->logo);
             }
 
-            $data['logo'] = $request->logo->store("tenant/{$tenant->uuid}/tenants");
+            $data['logo'] = $request->logo->store("tenant/{$tenant->uuid}tenants");
         }
 
         $tenant->update($data);
