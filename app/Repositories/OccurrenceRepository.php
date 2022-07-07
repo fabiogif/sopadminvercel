@@ -30,6 +30,7 @@ class OccurrenceRepository implements OccurrenceRepositoryInterface
     }
     public function createNewOccurrence(array $data)
     {
+        //dd($data);
         return $this->entity->create($data);
 
     }

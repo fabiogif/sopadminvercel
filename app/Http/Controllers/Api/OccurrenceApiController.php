@@ -40,6 +40,7 @@ class OccurrenceApiController extends Controller
 
     public function store(Request $request)
     {
+
         $request->all();
 
         $occurrence = $this->occurrenceService->createOccurrence($request->all());
@@ -49,7 +50,7 @@ class OccurrenceApiController extends Controller
 
     public function createNewOccurrence(StoreUpdateOccurrences $request)
     {
-
+        ;
         $occurrence = $this->occurrenceService->createNewOccurrence($request->all());
 
         if (!$occurrence) {

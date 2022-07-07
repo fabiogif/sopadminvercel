@@ -16,7 +16,7 @@ class OccurrenceObserver
      */
     public function created(Occurrences $Occurrences)
     {
-        //
+    //
     }
 
     /**
@@ -27,7 +27,7 @@ class OccurrenceObserver
      */
     public function updated(Occurrences $Occurrences)
     {
-        //
+    //
     }
 
     /**
@@ -38,7 +38,7 @@ class OccurrenceObserver
      */
     public function deleted(Occurrences $Occurrences)
     {
-        //
+    //
     }
 
     /**
@@ -49,7 +49,7 @@ class OccurrenceObserver
      */
     public function restored(Occurrences $Occurrences)
     {
-        //
+    //
     }
 
     /**
@@ -60,7 +60,7 @@ class OccurrenceObserver
      */
     public function forceDeleted(Occurrences $Occurrences)
     {
-        //
+    //
     }
     /**
      * Handle the Occurrences "creating" event.
@@ -70,7 +70,7 @@ class OccurrenceObserver
      */
     public function creating(Occurrences $Occurrences)
     {
-        $Occurrences->flag = Str::kebab($Occurrences->title);
+    //$Occurrences->flag = Str::kebab($Occurrences->title);
     }
 
 
@@ -82,6 +82,6 @@ class OccurrenceObserver
      */
     public function updating(Occurrences $Occurrences)
     {
-        $Occurrences->flag = Str::kebab($Occurrences->title);
+    // $Occurrences->flag = Str::kebab($Occurrences->title);
     }
 }
