@@ -12,8 +12,10 @@
             @csrf
             <div class="row">
                 <ul>
-                    <li><img src="{{ url("storage/{$tenant->logo}") }}" alt="{{ $tenant->name }}"
-                            style="max-width:150px" /></li>
+                    <li>
+                        <img src="{{ Storage::disk('s3')->url("{$tenant->logo}") }}" alt="{{ $tenant->name }}"
+                            style="max-width:150px" />
+                    </li>
                     <li><b>Nome:</b> {{ $tenant->name }}</li>
                     <li><b>URL:</b> {{ $tenant->url }}</li>
                     <li><b>CNPJ:</b> {{ $tenant->cnpj }}</li>

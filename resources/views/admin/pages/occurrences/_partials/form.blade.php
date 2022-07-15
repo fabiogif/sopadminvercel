@@ -17,8 +17,8 @@ if (!isset($occurrences)) {
             <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12">
                 <div class="form-group">
                     <label for="title">Nome Completo:</label>
-                    <input type="text" name="name" id="name" class="form-control" placeholder="Nome Completo" required
-                        value="{{ $occurrences->name ?? old('name') }}">
+                    <input type="text" name="name" id="name" class="form-control" placeholder="Nome Completo"
+                        required value="{{ $occurrences->name ?? old('name') }}">
                 </div>
             </div>
         </div>
@@ -111,15 +111,14 @@ if (!isset($occurrences)) {
         <div class="row">
             <div class="form-group">
                 <label>Anexo:</label>
-                <input type="file" name="anexo" class="form-control">
+                <input type="file" name="anexo[]" multiple class="form-control">
             </div>
         </div>
         <div class="row">
             <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12">
                 <div class="form-group">
                     <label for="description">Descrição:</label>
-                    <textarea cols="40" rows="5" name="description" id="description" required
-                        class="form-control">{{ $occurrences->description ?? old('description') }}</textarea>
+                    <textarea cols="40" rows="5" name="description" id="description" required class="form-control">{{ $occurrences->description ?? old('description') }}</textarea>
 
                 </div>
             </div>

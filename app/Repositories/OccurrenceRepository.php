@@ -15,7 +15,8 @@ class OccurrenceRepository implements OccurrenceRepositoryInterface
     }
     public function getAllOccurrences(int $pre_page)
     {
-        return $this->entity->paginate($pre_page);
+        //return $this->entity->paginate($pre_page);
+        return $this->entity->Occurrence();
     }
 
     public function getOccurrenceById(string $id)

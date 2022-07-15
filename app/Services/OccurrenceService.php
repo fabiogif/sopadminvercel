@@ -13,6 +13,7 @@ class OccurrenceService
 
     public function __construct(OccurrenceRepositoryInterface $repository)
     {
+
         $this->repository = $repository;
     }
 
@@ -36,8 +37,6 @@ class OccurrenceService
     }
     public function createNewOccurrence(array $data)
     {
-
-
         return $this->repository->createNewOccurrence($data);
     }
 

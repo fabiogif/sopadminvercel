@@ -1,4 +1,5 @@
-<?php declare(strict_types=1);
+<?phpdeclare(strict_types = 1)
+;
 /*
  * This file is part of resource-operations.
  *
@@ -10,6 +11,7 @@
 namespace SebastianBergmann\ResourceOperations;
 
 final class ResourceOperations
+
 {
     /**
      * @return string[]

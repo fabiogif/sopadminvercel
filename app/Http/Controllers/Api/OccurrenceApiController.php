@@ -25,6 +25,7 @@ class OccurrenceApiController extends Controller
 
         $occurrence = $this->occurrenceService->getAllOccurrences($pre_page);
 
+
         return OccurrenceResource::collection($occurrence);
     }
 
@@ -50,7 +51,7 @@ class OccurrenceApiController extends Controller
 
     public function createNewOccurrence(StoreUpdateOccurrences $request)
     {
-        ;
+
         $occurrence = $this->occurrenceService->createNewOccurrence($request->all());
 
         if (!$occurrence) {

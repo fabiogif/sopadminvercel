@@ -11,7 +11,8 @@
         <div class="col-lg-12 col-md-12 col-sm-12 col-xs-12">
             <div class="card">
                 <div class="card-body">
-                    <form action="{{ route('occurrences.store') }}" class="form" method="POST">
+                    <form action="{{ route('occurrences.store') }}" class="form" method="POST"
+                        enctype="multipart/form-data">
                         @csrf
                         @include('admin.pages.occurrences._partials.form')
                     </form>

@@ -50,7 +50,7 @@
                 <tbody>
                     @foreach ($tenants as $tenant)
                         <tr>
-                            <td><img src="{{ url("storage/{$tenant->logo}") }}" alt="{{ $tenant->name }}"
+                            <td><img src="{{ Storage::disk('s3')->url("{$tenant->logo}") }}" alt="{{ $tenant->name }}"
                                     style="max-width:150px" /></td>
                             <td>{{ $tenant->name }}</td>
                             <td>{{ $tenant->url }}</td>

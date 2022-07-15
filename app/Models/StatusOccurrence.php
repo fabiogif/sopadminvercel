@@ -17,4 +17,10 @@ class StatusOccurrence extends Model
             ->paginate(10);
         return $result;
     }
+
+    public function occurrences()
+    {
+        $this->hasMany(Occurrences::class);
+
+    }
 }

@@ -54,9 +54,18 @@ class OccurrencesController extends Controller
     public function store(StoreUpdateOccurrences $request)
     {
         $user = auth()->user();
+        $tenant = auth()->user()->tenant;
+
+
+        if ($request->hasFile('anexo') && $request->anexo->isValid()) {
+
+            $data['anexo'] = $request->anexo->store("occurrence/{$tenant->uuid}occurrences");
+        }
+
 
         $data = $request->all();
         $data['users_id'] = $user->id;
+
         $this->repository->create($data);
 
 

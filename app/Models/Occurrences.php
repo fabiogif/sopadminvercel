@@ -7,13 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Occurrences extends Model
 {
-    protected $fillable = ['title', 'name', 'description', 'cpf', 'rg', 'address', 'users_id', 'email', 'issuings_id', 'type_occurrences_id', 'latitude', 'longitude', 'status_occurrences_id', 'nameType', 'clients_id'];
+    protected $fillable = ['title', 'name', 'description', 'cpf', 'rg', 'address', 'users_id', 'email', 'issuings_id', 'type_occurrences_id', 'latitude', 'longitude', 'status_occurrences_id', 'clients_id', 'nameType', 'nameStatus'];
     use HasFactory;
 
     public function search($filter = null)
     {
         $result = $this->where('title', 'LIKE', "%{$filter}%")
             ->paginate(10);
+
         return $result;
     }
 
@@ -28,9 +29,12 @@ class Occurrences extends Model
             'type_occurrences.id as idType',
             'type_occurrences.name as nameType',
             'status_occurrences_id as status_occurrences_id',
+            'status_occurrences.name as nameStatus'
         )->join('issuings', 'issuings.id', '=', 'occurrences.issuings_id')
+            ->join('status_occurrences', 'status_occurrences.id', '=', 'occurrences.status_occurrences_id')
             ->join('type_occurrences', function ($join) {
             $join->on('occurrences.type_occurrences_id', '=', 'type_occurrences.id');
+
         })->where(function ($queryFilter) use ($filter) {
             if ($filter) {
                 $queryFilter->where('occurrences.title', 'LIKE', "%{$filter}%");
@@ -39,8 +43,16 @@ class Occurrences extends Model
 
         return $occurrences;
     }
+
+
     public function plan()
     {
         return $this->belongsTo(Plan::class);
     }
+    public function statusOccurence()
+    {
+        return $this->belongsTo(StatusOccurrence::class);
+    }
+
+
 }
