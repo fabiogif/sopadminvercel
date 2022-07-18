@@ -6,13 +6,15 @@ use App\Repositories\{
     ClientConsumerRepository,
     ClientRepository,
     TenantRepository,
-    OccurrenceRepository
+    OccurrenceRepository,
+    TypeOccurrenceRepository
 };
 use App\Repositories\Contracts\{
     ClientConsumerRepositoryInterface,
     ClientRepositoryInterface,
     OccurrenceRepositoryInterface,
     TenantRepositoryInterface,
+    TypeOccurrenceRepositoryInterface,
 };
 
 
@@ -42,6 +44,10 @@ class RepositoryServiceProvider extends ServiceProvider
         $this->app->bind(
             ClientConsumerRepositoryInterface::class,
             ClientConsumerRepository::class
+        );
+        $this->app->bind(
+            TypeOccurrenceRepositoryInterface::class,
+            TypeOccurrenceRepository::class
         );
     }
 

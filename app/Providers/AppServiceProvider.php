@@ -12,8 +12,10 @@ use App\Observers\OccurrenceObserver;
 use App\Observers\TenantObserver;
 use App\Repositories\Contracts\OccurrenceRepositoryInterface;
 use App\Repositories\Contracts\TenantRepositoryInterface;
+use App\Repositories\Contracts\TypeOccurrenceRepositoryInterface;
 use App\Repositories\OccurrenceRepository;
 use App\Repositories\TenantRepository;
+use App\Repositories\TypeOccurrenceRepository;
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Routing\UrlGenerator;
 
@@ -33,6 +35,10 @@ class AppServiceProvider extends ServiceProvider
         $this->app->bind(
             OccurrenceRepositoryInterface::class ,
             OccurrenceRepository::class
+        );
+        $this->app->bind(
+            TypeOccurrenceRepositoryInterface::class ,
+            TypeOccurrenceRepository::class
         );
     }
 

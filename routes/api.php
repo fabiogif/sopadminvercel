@@ -26,4 +26,6 @@ Route::get('/occurrences', [App\Http\Controllers\Api\OccurrenceApiController::cl
 Route::get('/occurrences/{uuid}', [App\Http\Controllers\Api\OccurrenceApiController::class , 'show']);
 //Route::post('/occurrences', [App\Http\Controllers\Api\OccurrenceApiController::class , 'store']);
 
+Route::get('/typeOccurrence', [App\Http\Controllers\Api\TypeOccurrenceApiController::class , 'index']);
+
 Route::post('/occurrences', [App\Http\Controllers\Api\OccurrenceApiController::class , 'createNewOccurrence']);

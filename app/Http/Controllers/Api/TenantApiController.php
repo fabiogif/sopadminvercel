@@ -18,7 +18,7 @@ class TenantApiController extends Controller
 
     public function index(Request $request)
     {
-        $pre_page = (int) $request->get('pre_page', 15);
+        $pre_page = (int)$request->get('pre_page', 15);
 
         $tenant = $this->tenantService->getAllTenants($pre_page);
 
