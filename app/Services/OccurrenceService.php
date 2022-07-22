@@ -27,6 +27,12 @@ class OccurrenceService
         return $this->repository->getOccurrenceById($id);
     }
 
+    public function getOccurrenceByClientId(int $clientId)
+    {
+        return $this->repository->getOccurrenceByClientId($clientId);
+
+    }
+
     public function make(Plan $plan, array $data)
     {
         $this->plan = $plan;

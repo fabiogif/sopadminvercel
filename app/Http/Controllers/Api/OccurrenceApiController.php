@@ -39,6 +39,18 @@ class OccurrenceApiController extends Controller
         return new OccurrenceResource($occurrence);
     }
 
+
+    public function getOccurrenceByClientId($clientId)
+    {
+        $occurrence = $this->occurrenceService->getOccurrenceByClientId($clientId);
+
+        if (!$occurrence) {
+            return response()->json(['message' => 'Not found'], 404);
+        }
+
+        return new OccurrenceResource($occurrence);
+    }
+
     public function store(Request $request)
     {
 

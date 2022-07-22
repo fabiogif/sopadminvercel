@@ -8,6 +8,8 @@ interface OccurrenceRepositoryInterface
 
     public function getOccurrenceById(string $id);
 
+    public function getOccurrenceByClientId(int $clientId);
+
     public function createNewOccurrence(array $data);
 
     public function create(

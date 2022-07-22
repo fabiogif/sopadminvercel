@@ -24,6 +24,7 @@ Route::post('/clientConsumer', [App\Http\Controllers\Api\Auth\RegisterController
 
 Route::get('/occurrences', [App\Http\Controllers\Api\OccurrenceApiController::class , 'index']);
 Route::get('/occurrences/{uuid}', [App\Http\Controllers\Api\OccurrenceApiController::class , 'show']);
+Route::get('/occurrences/getOccurrenceByClientId/{clientId}', [App\Http\Controllers\Api\OccurrenceApiController::class , 'getOccurrenceByClientId']);
 //Route::post('/occurrences', [App\Http\Controllers\Api\OccurrenceApiController::class , 'store']);
 
 Route::get('/typeOccurrence', [App\Http\Controllers\Api\TypeOccurrenceApiController::class , 'index']);
