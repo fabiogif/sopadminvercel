@@ -44,6 +44,31 @@ class Occurrences extends Model
         return $occurrences;
     }
 
+    public function OccurrenceByClientId($filter = null)
+    {
+
+        $occurrences = $this->select(
+            'occurrences.*',
+            'issuings.id as idIssuings',
+            'issuings.name as nameIssuings',
+            'type_occurrences.id as idType',
+            'type_occurrences.name as nameType',
+            'status_occurrences_id as status_occurrences_id',
+            'status_occurrences.name as nameStatus'
+        )->join('issuings', 'issuings.id', '=', 'occurrences.issuings_id')
+            ->join('status_occurrences', 'status_occurrences.id', '=', 'occurrences.status_occurrences_id')
+            ->join('type_occurrences', function ($join) {
+            $join->on('occurrences.type_occurrences_id', '=', 'type_occurrences.id');
+
+        })->where(function ($queryFilter) use ($filter) {
+            if ($filter) {
+                $queryFilter->where('occurrences.clients_id', '=', "{$filter}");
+            }
+        })->paginate();
+
+        return $occurrences;
+    }
+
 
     public function plan()
     {
