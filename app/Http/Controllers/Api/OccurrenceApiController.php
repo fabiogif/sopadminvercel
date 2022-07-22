@@ -48,7 +48,8 @@ class OccurrenceApiController extends Controller
             return response()->json(['message' => 'Not found'], 404);
         }
 
-        return new OccurrenceResource($occurrence);
+        return OccurrenceResource::collection($occurrence);
+
     }
 
     public function store(Request $request)

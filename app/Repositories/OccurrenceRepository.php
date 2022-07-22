@@ -26,7 +26,7 @@ class OccurrenceRepository implements OccurrenceRepositoryInterface
 
     public function getOccurrenceByClientId(int $clientId)
     {
-        return $this->entity->where('clients_id', $clientId)->first();
+        return $this->entity->where('clients_id', $clientId)->get();
 
     }
 
