@@ -35,6 +35,7 @@ class OccurrenceResource extends JsonResource
             'status_occurrences_id' => $this->status_occurrences_id,
             'nameType' => $this->nameType ? $this->nameType : '',
             'nameStatus' => $this->nameStatus ? $this->nameStatus : '',
+            'anexo' => $this->anexo ? $this->anexo : '',
             'clients_id' => $this->clients_id,
             'created_at' => Carbon::parse($this->created_at)->format('d/m/Y')
         ];

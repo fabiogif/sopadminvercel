@@ -7,15 +7,19 @@ use App\Http\Requests\Api\StoreUpdateOccurrences;
 use App\Http\Resources\OccurrenceResource;
 use App\Services\OccurrenceService;
 use Illuminate\Http\Request;
+use App\Models\OccurrencesImagens;
+use App\Models\Occurrences;
 
 class OccurrenceApiController extends Controller
 {
-    protected $occurrenceService;
+    protected $occurrenceService, $occurrenceImage, $occurrences;
 
-    public function __construct(OccurrenceService $occurrenceService)
+    public function __construct(OccurrenceService $occurrenceService, OccurrencesImagens $occurrencesImage, Occurrences $occurrences)
     {
-
         $this->occurrenceService = $occurrenceService;
+        $this->occurrenceImage = $occurrencesImage;
+        $this->occurrences = $occurrences;
+
     }
 
     public function index(Request $request)
@@ -55,8 +59,6 @@ class OccurrenceApiController extends Controller
     public function store(Request $request)
     {
 
-        $request->all();
-
         $occurrence = $this->occurrenceService->createOccurrence($request->all());
 
         return new OccurrenceResource($occurrence);
@@ -65,11 +67,24 @@ class OccurrenceApiController extends Controller
     public function createNewOccurrence(StoreUpdateOccurrences $request)
     {
 
-        $occurrence = $this->occurrenceService->createNewOccurrence($request->all());
+        $data = $request->all();
+
+        $occurrence = $this->occurrenceService->createNewOccurrence($data);
 
         if (!$occurrence) {
             return response()->json(['message', 'Ocorrência não cadastrada'], 404);
         }
+        $imagem = array();
+        foreach ($request->allFiles()['anexo'] as $i => $anexo) {
+            $data['url'] = $anexo->store("occurrence/occurrences");
+            $data['occurrence_id'] = $occurrence->id;
+            $this->occurrences->imagens()->create($data);
+            $imagem[] = $data['url'];
+        }
+        $occurrence->anexo = $imagem;
+
+
+
         return new OccurrenceResource($occurrence);
 
     }

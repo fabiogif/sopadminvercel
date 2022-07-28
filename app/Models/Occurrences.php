@@ -79,5 +79,8 @@ class Occurrences extends Model
         return $this->belongsTo(StatusOccurrence::class);
     }
 
-
+    public function imagens()
+    {
+        return $this->belongsTo(OccurrencesImagens::class);
+    }
 }
