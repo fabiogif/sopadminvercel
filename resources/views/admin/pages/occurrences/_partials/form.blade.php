@@ -69,7 +69,7 @@ if (!isset($occurrences)) {
             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                 <div class="form-group">
                     <label for="statuus_occurrences_id">Status Ocorrência:</label>
-                    <select name="statuus_occurrences_id" class="form-control" required>
+                    <select name="status_occurrences_id" class="form-control" required>
                         <option value="">Selecione...</option>
                         @foreach ($statusOccurrences as $key => $statusOccurrence)
                             <option value="{{ $statusOccurrence->id }}"
@@ -100,8 +100,7 @@ if (!isset($occurrences)) {
                     <select name="issuings_id" id="issuings_id" class="form-control" required>
                         <option value="">Selecione...</option>
                         @foreach ($issuings as $key => $issuing)
-                            <option value="{{ $issuing->id }}"
-                                {{ $issuing->id == $issuingsId ? 'selected' : '' }}>
+                            <option value="{{ $issuing->id }}" {{ $issuing->id == $issuingsId ? 'selected' : '' }}>
                                 {{ $issuing->name }}</option>
                         @endforeach
                     </select>

@@ -9,6 +9,7 @@ use App\Services\OccurrenceService;
 use Illuminate\Http\Request;
 use App\Models\OccurrencesImagens;
 use App\Models\Occurrences;
+use Illuminate\Support\Facades\Storage;
 
 class OccurrenceApiController extends Controller
 {
@@ -74,17 +75,21 @@ class OccurrenceApiController extends Controller
         if (!$occurrence) {
             return response()->json(['message', 'Ocorrência não cadastrada'], 404);
         }
-        $imagem = array();
-        foreach ($request->allFiles()['anexo'] as $i => $anexo) {
-            $data['url'] = $anexo->store("occurrence/occurrences");
-            $data['occurrence_id'] = $occurrence->id;
-            $this->occurrences->imagens()->create($data);
-            $imagem[] = $data['url'];
+
+        if ($request->hasFile('anexo')) {
+            $imagem = array();
+
+            foreach ($request->allFiles()['anexo'] as $anexo) {
+                Storage::put('occurrence/occurrences', file_get_contents($anexo));
+
+                //   $data['url'] = $anexo->store("occurrence/occurrences");
+                $data['occurrence_id'] = $occurrence->id;
+
+                $this->occurrences->imagens()->create($data);
+                $imagem[] = $data['url'];
+            }
+            $occurrence->anexo = $imagem;
         }
-        $occurrence->anexo = $imagem;
-
-
-
         return new OccurrenceResource($occurrence);
 
     }

@@ -56,18 +56,22 @@ class OccurrencesController extends Controller
         $user = auth()->user();
         $tenant = auth()->user()->tenant;
 
-
-        if ($request->hasFile('anexo') && $request->anexo->isValid()) {
-
-            $data['anexo'] = $request->anexo->store("occurrence/{$tenant->uuid}occurrences");
-        }
-
-
         $data = $request->all();
+
         $data['users_id'] = $user->id;
 
-        $this->repository->create($data);
+        $occurrence = $this->repository->create($data);
 
+        if ($request->hasFile('anexo')) {
+            foreach ($request->allFiles()['anexo'] as $anexo) {
+                Storage::put('occurrence/occurrences', file_get_contents($anexo));
+                $data['url'] = $anexo->store("occurrence/occurrences");
+
+                $data['occurrence_id'] = $occurrence->id;
+                $this->repository->imagens()->create($data);
+            //  $imagem[] = $data['url'];
+            }
+        }
 
         return redirect()->route('occurrences.index');
     }
@@ -110,7 +114,6 @@ class OccurrencesController extends Controller
         $filters = $request->all();
 
         $occurrences = $this->repository->Occurrence($request->filter);
-
         return view(
             'admin.pages.occurrences.index',
         [
@@ -148,15 +151,23 @@ class OccurrencesController extends Controller
         if (!$occurrences) {
             return redirect()->back();
         }
-        $tenant = auth()->user()->tenant;
 
-        if ($request->hasFile('image') && $request->image->isValid()) {
-            if (Storage::exists($occurrences->image)) {
-                Storage::delete($occurrences->image);
+        $data = $request->all();
+
+        if ($request->hasFile('anexo')) {
+            foreach ($request->allFiles()['anexo'] as $anexo) {
+                if (Storage::exists($occurrences->image)) {
+                    Storage::delete($occurrences->image);
+                }
+                $data['occurrence_id'] = $occurrences->id;
+                $data['url'] = $anexo->store("occurrence/occurrences");
+                $this->repository->imagens()->create($data);
             }
-            $data['image'] = $request->image->store("tenant/{$tenant->uuid}products");
         }
-        $occurrences->update($request->all());
+        $occurrences->update($data);
         return redirect()->route('occurrences.index');
+
+
+
     }
 }
