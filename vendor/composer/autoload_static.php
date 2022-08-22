@@ -186,6 +186,7 @@ class ComposerStaticInit2f7cf4165480bc60b4f0e6d16605967a
         ),
         'A' => 
         array (
+            'Aws\\Laravel\\' => 12,
             'Aws\\' => 4,
             'Asm89\\Stack\\' => 12,
             'App\\' => 4,
@@ -541,6 +542,10 @@ class ComposerStaticInit2f7cf4165480bc60b4f0e6d16605967a
         array (
             0 => __DIR__ . '/..' . '/brick/math/src',
         ),
+        'Aws\\Laravel\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/aws/aws-sdk-php-laravel/src',
+        ),
         'Aws\\' => 
         array (
             0 => __DIR__ . '/..' . '/aws/aws-sdk-php/src',
@@ -605,6 +610,7 @@ class ComposerStaticInit2f7cf4165480bc60b4f0e6d16605967a
         'App\\Http\\Controllers\\Admin\\DetailPlanController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/DetailPlanController.php',
         'App\\Http\\Controllers\\Admin\\IssuingController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/IssuingController.php',
         'App\\Http\\Controllers\\Admin\\OccurrencesController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/OccurrencesController.php',
+        'App\\Http\\Controllers\\Admin\\OccurrencesImagensController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/OccurrencesImagensController.php',
         'App\\Http\\Controllers\\Admin\\PlanController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/PlanController.php',
         'App\\Http\\Controllers\\Admin\\ProductController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/ProductController.php',
         'App\\Http\\Controllers\\Admin\\StatusOccurrenceController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/StatusOccurrenceController.php',
@@ -616,6 +622,7 @@ class ComposerStaticInit2f7cf4165480bc60b4f0e6d16605967a
         'App\\Http\\Controllers\\Api\\Auth\\RegisterController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/Auth/RegisterController.php',
         'App\\Http\\Controllers\\Api\\OccurrenceApiController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/OccurrenceApiController.php',
         'App\\Http\\Controllers\\Api\\TenantApiController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/TenantApiController.php',
+        'App\\Http\\Controllers\\Api\\TypeOccurrenceApiController' => __DIR__ . '/../..' . '/app/Http/Controllers/Api/TypeOccurrenceApiController.php',
         'App\\Http\\Controllers\\Auth\\ConfirmPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ConfirmPasswordController.php',
         'App\\Http\\Controllers\\Auth\\ForgotPasswordController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/ForgotPasswordController.php',
         'App\\Http\\Controllers\\Auth\\LoginController' => __DIR__ . '/../..' . '/app/Http/Controllers/Auth/LoginController.php',
@@ -657,6 +664,7 @@ class ComposerStaticInit2f7cf4165480bc60b4f0e6d16605967a
         'App\\Http\\Resources\\OccurrenceResource' => __DIR__ . '/../..' . '/app/Http/Resources/OccurrenceResource.php',
         'App\\Http\\Resources\\StatusOccurenceResource' => __DIR__ . '/../..' . '/app/Http/Resources/StatusOccurenceResource.php',
         'App\\Http\\Resources\\TenantResource' => __DIR__ . '/../..' . '/app/Http/Resources/TenantResource.php',
+        'App\\Http\\Resources\\TypeOccurrenceResource' => __DIR__ . '/../..' . '/app/Http/Resources/TypeOccurrenceResource.php',
         'App\\Listeners\\AddRoleTenant' => __DIR__ . '/../..' . '/app/Listeners/AddRoleTenant.php',
         'App\\Models\\Category' => __DIR__ . '/../..' . '/app/Models/Category.php',
         'App\\Models\\Client' => __DIR__ . '/../..' . '/app/Models/Client.php',
@@ -664,6 +672,7 @@ class ComposerStaticInit2f7cf4165480bc60b4f0e6d16605967a
         'App\\Models\\DetailPlan' => __DIR__ . '/../..' . '/app/Models/DetailPlan.php',
         'App\\Models\\Issuing' => __DIR__ . '/../..' . '/app/Models/Issuing.php',
         'App\\Models\\Occurrences' => __DIR__ . '/../..' . '/app/Models/Occurrences.php',
+        'App\\Models\\OccurrencesImagens' => __DIR__ . '/../..' . '/app/Models/OccurrencesImagens.php',
         'App\\Models\\Permission' => __DIR__ . '/../..' . '/app/Models/Permission.php',
         'App\\Models\\Plan' => __DIR__ . '/../..' . '/app/Models/Plan.php',
         'App\\Models\\Product' => __DIR__ . '/../..' . '/app/Models/Product.php',
@@ -693,13 +702,16 @@ class ComposerStaticInit2f7cf4165480bc60b4f0e6d16605967a
         'App\\Repositories\\Contracts\\ClientRepositoryInterface' => __DIR__ . '/../..' . '/app/Repositories/Contracts/ClientRepositoryInterface.php',
         'App\\Repositories\\Contracts\\OccurrenceRepositoryInterface' => __DIR__ . '/../..' . '/app/Repositories/Contracts/OccurrenceRepositoryInterface.php',
         'App\\Repositories\\Contracts\\TenantRepositoryInterface' => __DIR__ . '/../..' . '/app/Repositories/Contracts/TenantRepositoryInterface.php',
+        'App\\Repositories\\Contracts\\TypeOccurrenceRepositoryInterface' => __DIR__ . '/../..' . '/app/Repositories/Contracts/TypeOccurrenceRepositoryInterface.php',
         'App\\Repositories\\OccurrenceRepository' => __DIR__ . '/../..' . '/app/Repositories/OccurrenceRepository.php',
         'App\\Repositories\\TenantRepository' => __DIR__ . '/../..' . '/app/Repositories/TenantRepository.php',
+        'App\\Repositories\\TypeOccurrenceRepository' => __DIR__ . '/../..' . '/app/Repositories/TypeOccurrenceRepository.php',
         'App\\Rules\\UniqueTenant' => __DIR__ . '/../..' . '/app/Rules/UniqueTenant.php',
         'App\\Services\\ClientConsumerService' => __DIR__ . '/../..' . '/app/Services/ClientConsumerService.php',
         'App\\Services\\ClientService' => __DIR__ . '/../..' . '/app/Services/ClientService.php',
         'App\\Services\\OccurrenceService' => __DIR__ . '/../..' . '/app/Services/OccurrenceService.php',
         'App\\Services\\TenantService' => __DIR__ . '/../..' . '/app/Services/TenantService.php',
+        'App\\Services\\TypeOccurrenceService' => __DIR__ . '/../..' . '/app/Services/TypeOccurrenceService.php',
         'App\\Tenant\\ManagerTenant' => __DIR__ . '/../..' . '/app/Tenant/ManagerTenant.php',
         'App\\Tenant\\Observers\\TenantObserver' => __DIR__ . '/../..' . '/app/Tenant/Observers/TenantObserver.php',
         'App\\Tenant\\Scopes\\TenantScope' => __DIR__ . '/../..' . '/app/Tenant/Scopes/TenantScope.php',
@@ -1223,6 +1235,8 @@ class ComposerStaticInit2f7cf4165480bc60b4f0e6d16605967a
         'Aws\\LakeFormation\\LakeFormationClient' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/LakeFormation/LakeFormationClient.php',
         'Aws\\Lambda\\Exception\\LambdaException' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/Lambda/Exception/LambdaException.php',
         'Aws\\Lambda\\LambdaClient' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/Lambda/LambdaClient.php',
+        'Aws\\Laravel\\AwsFacade' => __DIR__ . '/..' . '/aws/aws-sdk-php-laravel/src/AwsFacade.php',
+        'Aws\\Laravel\\AwsServiceProvider' => __DIR__ . '/..' . '/aws/aws-sdk-php-laravel/src/AwsServiceProvider.php',
         'Aws\\LexModelBuildingService\\Exception\\LexModelBuildingServiceException' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/LexModelBuildingService/Exception/LexModelBuildingServiceException.php',
         'Aws\\LexModelBuildingService\\LexModelBuildingServiceClient' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/LexModelBuildingService/LexModelBuildingServiceClient.php',
         'Aws\\LexModelsV2\\Exception\\LexModelsV2Exception' => __DIR__ . '/..' . '/aws/aws-sdk-php/src/LexModelsV2/Exception/LexModelsV2Exception.php',
