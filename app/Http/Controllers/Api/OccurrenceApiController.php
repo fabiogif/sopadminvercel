@@ -80,14 +80,17 @@ class OccurrenceApiController extends Controller
             $imagem = array();
 
             foreach ($request->allFiles()['anexo'] as $anexo) {
+
                 Storage::put('occurrence/occurrences', file_get_contents($anexo));
 
-                //   $data['url'] = $anexo->store("occurrence/occurrences");
+                $data['url'] = $anexo->store("occurrence/occurrences");
                 $data['occurrence_id'] = $occurrence->id;
 
                 $this->occurrences->imagens()->create($data);
                 $imagem[] = $data['url'];
             }
+
+
             $occurrence->anexo = $imagem;
         }
         return new OccurrenceResource($occurrence);
