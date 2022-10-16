@@ -29,8 +29,10 @@ class Occurrences extends Model
             'type_occurrences.id as idType',
             'type_occurrences.name as nameType',
             'status_occurrences_id as status_occurrences_id',
-            'status_occurrences.name as nameStatus'
+            'status_occurrences.name as nameStatus',
+            'occurrences_imagens.url as anexo'
         )->join('issuings', 'issuings.id', '=', 'occurrences.issuings_id')
+            ->leftJoin('occurrences_imagens', 'occurrences.id', '=', 'occurrences_imagens.occurrence_id')
             ->join('status_occurrences', 'status_occurrences.id', '=', 'occurrences.status_occurrences_id')
             ->join('type_occurrences', function ($join) {
             $join->on('occurrences.type_occurrences_id', '=', 'type_occurrences.id');

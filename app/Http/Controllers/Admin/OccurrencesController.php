@@ -8,6 +8,7 @@ use App\Models\Occurrences;
 use Illuminate\Http\Request;
 use App\Models\TypeOccurrence;
 use App\Models\Issuing;
+use App\Models\OccurrencesImagens;
 use App\Models\StatusOccurrence;
 use Illuminate\Support\Facades\Storage;
 
@@ -19,12 +20,14 @@ class OccurrencesController extends Controller
         Occurrences $occurrences,
         TypeOccurrence $typeOccurrence,
         Issuing $issuing,
-        StatusOccurrence $statusOccurrence)
+        StatusOccurrence $statusOccurrence,
+        OccurrencesImagens $occurrencesImagens)
     {
         $this->repository = $occurrences;
         $this->typeOccurrence = $typeOccurrence;
         $this->statusOccurrence = $statusOccurrence;
         $this->issuing = $issuing;
+        $this->occurrencesImagens = $occurrencesImagens;
     }
 
 
@@ -81,6 +84,7 @@ class OccurrencesController extends Controller
         $occurrences = $this->repository->where('id', $id)->first();
         $statusOccurrences = $this->statusOccurrence->orderBy('name')->get();
         $typeOccurrences = $this->typeOccurrence->orderBy('name')->get();
+        $occurrencesImagens = $this->occurrencesImagens->where('occurrence_id', $id)->get();
 
         $issuings = $this->issuing->orderBy('name')->get();
 
@@ -92,7 +96,8 @@ class OccurrencesController extends Controller
             'typeOccurrences' => $typeOccurrences,
             'occurrences' => $occurrences,
             'issuings' => $issuings,
-            'statusOccurrences' => $statusOccurrences
+            'statusOccurrences' => $statusOccurrences,
+            'occurrencesImagens' => $occurrencesImagens
         ]);
     }
 
@@ -147,6 +152,7 @@ class OccurrencesController extends Controller
     public function update(StoreUpdateOccurrences $request, $id)
     {
         $occurrences = $this->repository->where('id', $id)->first();
+        //$occurrencesImagens = $this->occurrencesImagens->where('occurrence_id', $id)->get();
 
         if (!$occurrences) {
             return redirect()->back();
@@ -164,6 +170,7 @@ class OccurrencesController extends Controller
                 $this->repository->imagens()->create($data);
             }
         }
+
         $occurrences->update($data);
         return redirect()->route('occurrences.index');
 

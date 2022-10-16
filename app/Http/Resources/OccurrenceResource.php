@@ -16,7 +16,12 @@ class OccurrenceResource extends JsonResource
      */
     public function toArray($request)
     {
-
+        if (isset($this->anexo)) {
+            $anexo = '';
+            foreach ($this->anexo as $item) {
+                $anexo .= 'https://sopanexos.s3.amazonaws.com/' . $item . ',';
+            }
+        }
 
         return [
             'id' => $this->id,
@@ -35,7 +40,7 @@ class OccurrenceResource extends JsonResource
             'status_occurrences_id' => $this->status_occurrences_id,
             'nameType' => $this->nameType ? $this->nameType : '',
             'nameStatus' => $this->nameStatus ? $this->nameStatus : '',
-            'anexo' => $this->anexo ? $this->anexo : '',
+            'anexo' => isset($anexo) ? explode(",", $anexo) : '',
             'clients_id' => $this->clients_id,
             'created_at' => Carbon::parse($this->created_at)->format('d/m/Y')
         ];
