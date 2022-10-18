@@ -29,15 +29,13 @@ class Occurrences extends Model
             'type_occurrences.id as idType',
             'type_occurrences.name as nameType',
             'status_occurrences_id as status_occurrences_id',
-            'status_occurrences.name as nameStatus',
-            'occurrences_imagens.url as anexo'
+            'status_occurrences.name as nameStatus'
         )->join('issuings', 'issuings.id', '=', 'occurrences.issuings_id')
-            ->leftJoin('occurrences_imagens', 'occurrences.id', '=', 'occurrences_imagens.occurrence_id')
             ->join('status_occurrences', 'status_occurrences.id', '=', 'occurrences.status_occurrences_id')
             ->join('type_occurrences', function ($join) {
-            $join->on('occurrences.type_occurrences_id', '=', 'type_occurrences.id');
+                $join->on('occurrences.type_occurrences_id', '=', 'type_occurrences.id');
 
-        })->where(function ($queryFilter) use ($filter) {
+            })->where(function ($queryFilter) use ($filter) {
             if ($filter) {
                 $queryFilter->where('occurrences.title', 'LIKE', "%{$filter}%");
             }
@@ -60,9 +58,9 @@ class Occurrences extends Model
         )->join('issuings', 'issuings.id', '=', 'occurrences.issuings_id')
             ->join('status_occurrences', 'status_occurrences.id', '=', 'occurrences.status_occurrences_id')
             ->join('type_occurrences', function ($join) {
-            $join->on('occurrences.type_occurrences_id', '=', 'type_occurrences.id');
+                $join->on('occurrences.type_occurrences_id', '=', 'type_occurrences.id');
 
-        })->where(function ($queryFilter) use ($filter) {
+            })->where(function ($queryFilter) use ($filter) {
             if ($filter) {
                 $queryFilter->where('occurrences.clients_id', '=', "{$filter}");
             }

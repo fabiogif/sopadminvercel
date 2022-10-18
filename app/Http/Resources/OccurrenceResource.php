@@ -6,6 +6,8 @@ use App\Models\StatusOccurrence;
 use Carbon\Carbon;
 use Illuminate\Http\Resources\Json\JsonResource;
 
+use function PHPUnit\Framework\isNull;
+
 class OccurrenceResource extends JsonResource
 {
     /**
@@ -16,9 +18,10 @@ class OccurrenceResource extends JsonResource
      */
     public function toArray($request)
     {
+        $anexo = '';
+
         if (isset($this->anexo)) {
-            $anexo = '';
-            foreach ($this->anexo as $item) {
+            foreach ((array)$this->anexo as $item) {
                 $anexo .= 'https://sopanexos.s3.amazonaws.com/' . $item . ',';
             }
         }
