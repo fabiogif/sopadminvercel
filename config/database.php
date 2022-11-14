@@ -80,17 +80,17 @@ return [
         /*
         'pgsql' => [
             'driver' => 'pgsql',
-            'host' => $DATABASE_URL["host"],
-            'port' => $DATABASE_URL["port"],
-            'database' => ltrim($DATABASE_URL["path"], "/"),
-            'username' => $DATABASE_URL["user"],
-            'password' => $DATABASE_URL["pass"],
+            'host' => 'database-1.c0nmcwwu70ko.us-east-1.rds.amazonaws.com',
+            'port' => 5432,
+            'database' => 'sopadmin',
+            'username' => 'postgres',
+            'password' => 'Duda0793',
             'charset' => 'utf8',
             'prefix' => '',
             'schema' => 'public',
             'sslmode' => 'require',
         ],
-*/
+ */
         'sqlsrv' => [
             'driver' => 'sqlsrv',
             'url' => env('DATABASE_URL'),
