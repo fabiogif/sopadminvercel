@@ -2,13 +2,16 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Http\Controllers\Admin\MailController;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\Api\StoreUpdateOccurrences;
 use App\Http\Resources\OccurrenceResource;
+use App\Mail\MailNotify;
 use App\Services\OccurrenceService;
 use Illuminate\Http\Request;
 use App\Models\OccurrencesImagens;
 use App\Models\Occurrences;
+use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 
 class OccurrenceApiController extends Controller
@@ -97,7 +100,21 @@ class OccurrenceApiController extends Controller
 
             $occurrence->anexo = $imagem;
         }
+
+        $this->sendMail($occurrence);
+
         return new OccurrenceResource($occurrence);
+
+    }
+
+    public function sendMail($occurrence)
+    {
+
+        $data = ['subject' => $occurrence->title, 'body' => $occurrence];
+        $envioMail = new MailController();
+        $envioMail->sendMail($data);
+        //Mail::to($occurrence->email)->send(new MailNotify($data));
+
 
     }
 

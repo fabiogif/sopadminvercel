@@ -39,6 +39,8 @@ Route::prefix('admin')
         Route::any('/users/{id}/roles/create', [App\Http\Controllers\Admin\ACL\RoleUserController::class , 'rolesAvailable'])->name('users.roles.available');
         Route::get('/users/{id}/roles', [App\Http\Controllers\Admin\ACL\RoleUserController::class , 'roles'])->name('users.roles');
         Route::get('/roles/{id}/users', [App\Http\Controllers\Admin\ACL\RoleUserController::class , 'users'])->name('roles.users');
+        //Teste Mail
+        Route::get('/sendMail', [App\Http\Controllers\Admin\MailController::class , 'sendMail']);
 
         //Table - Mesas
         Route::any('tables/search', [App\Http\Controllers\Admin\TableController::class , 'search'])->name('tables.search');

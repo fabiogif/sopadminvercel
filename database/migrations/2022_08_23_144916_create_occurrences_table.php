@@ -22,7 +22,7 @@ class CreateOccurrencesTable extends Migration
             $table->string('rg')->nullable();
             $table->string('email')->nullable();
             $table->string('address')->nullable();
-
+            $table->string('phone')->nullable();
 
             $table->unsignedBigInteger('users_id');
             $table->unsignedBigInteger('clients_id');

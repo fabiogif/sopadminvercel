@@ -328,7 +328,7 @@ return [
 
     'plugins' => [
         'Datatables' => [
-            'active' => false,
+            'active' => true,
             'files' => [
                 [
                     'type' => 'js',
@@ -348,7 +348,7 @@ return [
             ],
         ],
         'Select2' => [
-            'active' => false,
+            'active' => true,
             'files' => [
                 [
                     'type' => 'js',
@@ -373,7 +373,7 @@ return [
             ],
         ],
         'Sweetalert2' => [
-            'active' => false,
+            'active' => true,
             'files' => [
                 [
                     'type' => 'js',
@@ -397,6 +397,27 @@ return [
                 ],
             ],
         ],
+        'inputmask' => [
+            'active' => true,
+            'files' => [
+                [
+                    'type' => 'js',
+                    'asset' => false,
+                    'location' => 'https://rawgit.com/RobinHerbots/Inputmask/5.x/dist/jquery.inputmask.js',
+                ],
+            ],
+        ],
+        'custom' => [
+            'active' => true,
+            'files' => [
+                [
+                    'type' => 'js',
+                    'asset' => false,
+                    'location' => '../../../js/custom.js',
+                ],
+            ],
+        ],
+
     ],
 
     /*

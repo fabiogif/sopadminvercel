@@ -57,6 +57,7 @@ class OccurrenceService
             'description' => $data['description'],
             'cpf' => $data['cpf'] ?? '',
             'rg' => $data['rg'],
+            'phone' => $data['phone'],
             'address' => $data['address'],
             'users_id' => $data['users_id'],
             'email' => $data['email'],

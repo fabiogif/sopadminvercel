@@ -15,6 +15,7 @@
                     <li><b>Nome:</b> {{ $occurrences->title }}</li>
                     <li><b>Ultima Atualização:</b> {{ date('d/M/Y h:m:s', strtotime($occurrences->updated_at)) }}</li>
                     <li><b>E-mail:</b> {{ $occurrences->email }}</li>
+                    <li><b>Telefone:</b> {{ $occurrences->phone }}</li>
                     <li><b>Endereço:</b> {{ $occurrences->address }}</li>
                     @foreach ($occurrencesImagens as $occurrencesImagen)
                         <li

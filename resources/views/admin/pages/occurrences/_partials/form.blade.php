@@ -50,17 +50,27 @@ if (!isset($occurrences)) {
             </div>
         </div>
         <div class="row">
+            <div class="col-lg-8 col-md-8 col-sm-6 col-xs-12">
+                <div class="form-group">
+                    <label for="title">Telefone:</label>
+                    <input type="tel" name="phone" class="form-control phone" placeholder="Telefone" required
+                        value="{{ $occurrences->phone ?? old('phone') }}">
+                </div>
+            </div>
+        </div>
+
+        <div class="row">
             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                 <div class="form-group">
                     <label for="latitude">Latitude:</label>
-                    <input type="text" name="latitude" class="form-control" placeholder="Latitude"
+                    <input type="text" name="latitude" class="form-control" placeholder="Latitude" disabled
                         value="{{ $occurrences->latitude ?? old('latitude') }}">
                 </div>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-6 col-xs-12">
                 <div class="form-group">
                     <label for="longitude">Longitude:</label>
-                    <input type="text" name="longitude" class="form-control" placeholder="Longitude"
+                    <input type="text" name="longitude" class="form-control" placeholder="Longitude" disabled
                         value="{{ $occurrences->longitude ?? old('longitude') }}">
                 </div>
             </div>

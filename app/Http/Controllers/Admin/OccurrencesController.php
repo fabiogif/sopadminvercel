@@ -38,8 +38,10 @@ class OccurrencesController extends Controller
      */
     public function index()
     {
-        $occurrences = $this->repository->paginate();
+        $occurrences = $this->repository->orderBy('updated_at', 'desc')->orderBy('created_at', 'desc')->paginate();
+
         return view('admin.pages.occurrences.index', ['occurrences' => $occurrences]);
+
     }
 
     public function create()
@@ -72,7 +74,7 @@ class OccurrencesController extends Controller
 
                 $data['occurrence_id'] = $occurrence->id;
                 $this->repository->imagens()->create($data);
-            //  $imagem[] = $data['url'];
+                //  $imagem[] = $data['url'];
             }
         }
 
@@ -121,10 +123,10 @@ class OccurrencesController extends Controller
         $occurrences = $this->repository->Occurrence($request->filter);
         return view(
             'admin.pages.occurrences.index',
-        [
-            'occurrences' => $occurrences,
-            'filters' => $filters
-        ]
+            [
+                'occurrences' => $occurrences,
+                'filters' => $filters
+            ]
         );
     }
 
@@ -142,10 +144,10 @@ class OccurrencesController extends Controller
 
         return view(
             'admin.pages.occurrences.edit', [
-            'occurrences' => $occurrences,
-            'typeOccurrences' => $typeOccurrences,
-            'statusOccurrences' => $statusOccurrences,
-            'issuings' => $issuings]
+                'occurrences' => $occurrences,
+                'typeOccurrences' => $typeOccurrences,
+                'statusOccurrences' => $statusOccurrences,
+                'issuings' => $issuings]
         );
     }
 

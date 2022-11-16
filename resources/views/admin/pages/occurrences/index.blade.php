@@ -38,8 +38,8 @@
             <table class="table table-condensed">
                 <thead>
                     <tr>
-                        <th>Titulo</th>
                         <th>Nome</th>
+                        <th>Titulo</th>
                         <th>Tipo de Ocorrência</th>
                         <th>Orgão Ocorrência</th>
                         <th>E-mail</th>
@@ -49,10 +49,9 @@
                 </thead>
                 <tbody>
                     @foreach ($occurrences as $occurrence)
-
                         <tr>
-                            <td>{{ $occurrence->title }}</td>
                             <td>{{ $occurrence->name }}</td>
+                            <td>{{ $occurrence->title }}</td>
                             <td>{{ $occurrence->nameType }}</td>
                             <td>{{ $occurrence->nameIssuings }}</td>
                             <td>{{ $occurrence->email }}</td>

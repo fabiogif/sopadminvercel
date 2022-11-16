@@ -7,12 +7,14 @@ use Illuminate\Database\Eloquent\Model;
 
 class Occurrences extends Model
 {
-    protected $fillable = ['title', 'name', 'description', 'cpf', 'rg', 'address', 'users_id', 'email', 'issuings_id', 'type_occurrences_id', 'latitude', 'longitude', 'status_occurrences_id', 'clients_id', 'nameType', 'nameStatus'];
+    protected $fillable = ['title', 'name', 'description', 'cpf', 'rg', 'address', 'users_id', 'email', 'issuings_id', 'type_occurrences_id', 'phone', 'latitude', 'longitude', 'status_occurrences_id', 'clients_id', 'nameType', 'nameStatus'];
     use HasFactory;
 
     public function search($filter = null)
     {
-        $result = $this->where('title', 'LIKE', "%{$filter}%")
+        $result = $this->where('title', 'ILIKE', "%{$filter}%")
+            ->orWhere('name', 'ILIKE', "%{$filter}%")
+            ->orderBy('updated_at', 'desc')->orderBy('created_at', 'desc')
             ->paginate(10);
 
         return $result;
@@ -37,9 +39,9 @@ class Occurrences extends Model
 
             })->where(function ($queryFilter) use ($filter) {
             if ($filter) {
-                $queryFilter->where('occurrences.title', 'LIKE', "%{$filter}%");
+                $queryFilter->where('occurrences.title', 'ILIKE', "%{$filter}%")->orWhere('occurrences.name', 'ILIKE', "%{$filter}%");
             }
-        })->paginate();
+        })->orderBy('occurrences.updated_at', 'desc')->orderBy('occurrences.created_at', 'desc')->paginate();
 
         return $occurrences;
     }
