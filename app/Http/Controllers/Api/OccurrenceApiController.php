@@ -101,7 +101,7 @@ class OccurrenceApiController extends Controller
             $occurrence->anexo = $imagem;
         }
 
-        $this->sendMail($occurrence);
+    //    $this->sendMail($occurrence);
 
         return new OccurrenceResource($occurrence);
 
