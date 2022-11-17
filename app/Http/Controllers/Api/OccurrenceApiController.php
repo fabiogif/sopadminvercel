@@ -28,7 +28,7 @@ class OccurrenceApiController extends Controller
 
     public function index(Request $request)
     {
-        $pre_page = (int)$request->get('pre_page', 15);
+        $pre_page = (int) $request->get('pre_page', 15);
         $occurrence = $this->occurrenceService->getAllOccurrences($pre_page);
 
 
@@ -81,8 +81,6 @@ class OccurrenceApiController extends Controller
             return response()->json(['message', 'Ocorrência não cadastrada'], 404);
         }
 
-
-
         if ($request->hasFile('anexo')) {
             $imagem = array();
 
@@ -96,12 +94,10 @@ class OccurrenceApiController extends Controller
                 $this->occurrences->imagens()->create($data);
                 $imagem[] = $data['url'];
             }
-
-
             $occurrence->anexo = $imagem;
         }
 
-    //    $this->sendMail($occurrence);
+        //$this->sendMail($occurrence);
 
         return new OccurrenceResource($occurrence);
 

@@ -20,7 +20,6 @@
 @section('content')
     <div class="card">
         @include('admin.includes.alerts')
-
         <div class="card-header">
             <form action="{{ route('permission.search') }}" method="POST" class="form form-inline">
                 @csrf
